@@ -13,9 +13,4 @@ namespace WowRealmStatus
         public string slug;
         #pragma warning restore 0649
     }
-
-    class RealmStatus
-    {
-        public List<Realm> realms = new List<Realm>();
-    }
 }

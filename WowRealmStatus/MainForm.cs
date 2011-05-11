@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Net;
-using System.Text;
-using System.Web.Script.Serialization;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WowRealmStatus
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private ListViewColumnSorter columnSorter;
         private string m_region;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -26,35 +24,36 @@ namespace WowRealmStatus
         {
             m_region = "eu";
 
-            FillListView();
+            UpdateRealmStatus();
         }
 
-        private void FillListView()
+        private void UpdateRealmStatus()
         {
-            WebClient client = new WebClient();
-            client.DownloadDataCompleted += new DownloadDataCompletedEventHandler(client_DownloadDataCompleted);
-            client.DownloadDataAsync(new Uri(String.Format("http://{0}.battle.net/api/wow/realm/status", m_region)));
+            Task<RealmStatus>.Factory.StartNew(() => RealmStatus.GetAll(m_region)).ContinueWith(task => FillListView(task.Result));
         }
 
-        void client_DownloadDataCompleted(object sender, DownloadDataCompletedEventArgs e)
-        {
-            listView1.Items.Clear();
+        delegate void AddListViewItem(RealmStatus r);
 
-            try
+        private void FillListView(RealmStatus status)
+        {
+            if (status == null)
             {
-                var dataStr = Encoding.UTF8.GetString(e.Result);
+                MessageBox.Show(String.Format("Failed to get realm status for region {0}", m_region));
+                return;
+            }
 
-                var serializer = new JavaScriptSerializer();
-                var status = serializer.Deserialize<RealmStatus>(dataStr);
+            if (listView1.InvokeRequired)
+            {
+                listView1.Invoke(new AddListViewItem(FillListView), new object[] { status });
+            }
+            else
+            {
+                listView1.Items.Clear();
 
+                listView1.BeginUpdate();
                 foreach (var realm in status.realms)
                     listView1.Items.Add(new ListViewItem(new string[] { realm.name, realm.slug, realm.type, realm.population, realm.queue.ToString(), realm.status.ToString() }));
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-                if (exc.InnerException != null)
-                    MessageBox.Show(exc.InnerException.Message);
+                listView1.EndUpdate();
             }
         }
 
@@ -73,7 +72,7 @@ namespace WowRealmStatus
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FillListView();
+            UpdateRealmStatus();
         }
 
         private void regionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,7 +85,7 @@ namespace WowRealmStatus
                     m_region = (string)region.Tag;
             }
 
-            FillListView();
+            UpdateRealmStatus();
         }
     }
 }
