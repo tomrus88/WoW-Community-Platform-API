@@ -29,7 +29,7 @@ namespace WowRealmStatus
 
         private void UpdateRealmStatus()
         {
-            Task<RealmStatus>.Factory.StartNew(() => RealmStatus.GetAll(m_region)).ContinueWith(task => FillListView(task.Result));
+            Task<RealmStatus>.Factory.StartNew(() => RealmStatus.Get(m_region)).ContinueWith(task => FillListView(task.Result));
         }
 
         delegate void AddListViewItem(RealmStatus r);
@@ -44,7 +44,7 @@ namespace WowRealmStatus
 
             if (listView1.InvokeRequired)
             {
-                listView1.Invoke(new AddListViewItem(FillListView), new object[] { status });
+                listView1.Invoke(new AddListViewItem(FillListView), status);
             }
             else
             {
@@ -52,7 +52,7 @@ namespace WowRealmStatus
 
                 listView1.BeginUpdate();
                 foreach (var realm in status.realms)
-                    listView1.Items.Add(new ListViewItem(new string[] { realm.name, realm.slug, realm.type, realm.population, realm.queue.ToString(), realm.status.ToString() }));
+                    listView1.Items.Add(new ListViewItem(realm.ToStringArray()));
                 listView1.EndUpdate();
             }
         }

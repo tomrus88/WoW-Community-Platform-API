@@ -10,34 +10,27 @@ namespace WowRealmStatus
     {
         public List<Realm> realms = new List<Realm>();
 
-        public static RealmStatus GetAll(string region)
+        const string baseURL = "http://{0}.battle.net/api/wow/realm/status{1}";
+        const string realmArg = "realm={0}{1}";
+
+        public static RealmStatus Get(string region, params object[] realms)
         {
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    var data = client.DownloadData(new Uri(String.Format("http://{0}.battle.net/api/wow/realm/status", region)));
+                    byte[] data;
 
-                    var dataStr = Encoding.UTF8.GetString(data);
+                    string args = String.Empty;
 
-                    var serializer = new JavaScriptSerializer();
+                    if (realms.Length != 0)
+                    {
+                        args += "?";
+                        for (var i = 0; i < realms.Length; ++i)
+                            args += String.Format(realmArg, realms[i], i + 1 == realms.Length ? String.Empty : "&");
+                    }
 
-                    return serializer.Deserialize<RealmStatus>(dataStr);
-                }
-                catch
-                {
-                    return null;
-                }
-            }
-        }
-
-        public static RealmStatus GetSingle(string region, string realm)
-        {
-            using (WebClient client = new WebClient())
-            {
-                try
-                {
-                    var data = client.DownloadData(new Uri(String.Format("http://{0}.battle.net/api/wow/realm/status?realm={1}", region, realm)));
+                    data = client.DownloadData(new Uri(String.Format(baseURL, region, args)));
 
                     var dataStr = Encoding.UTF8.GetString(data);
 

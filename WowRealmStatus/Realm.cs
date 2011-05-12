@@ -12,5 +12,18 @@ namespace WowRealmStatus
         public string name;
         public string slug;
         #pragma warning restore 0649
+
+        public string[] ToStringArray()
+        {
+            return new string[]
+            {
+                name,
+                slug,
+                type,
+                population,
+                queue.ToString(),
+                status.ToString()
+            };
+        }
     }
 }
