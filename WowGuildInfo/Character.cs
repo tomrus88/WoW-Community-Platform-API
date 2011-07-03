@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace WowCharacterInfo
+namespace WowGuildInfo
 {
     public enum WowClass
     {
@@ -43,15 +43,7 @@ namespace WowCharacterInfo
     [DataContract]
     public class Character
     {
-        // fields for failed response
 #pragma warning disable 0649
-        [DataMember(IsRequired = false)]
-        public string status;
-        [DataMember(IsRequired = false)]
-        public string reason;
-
-        [DataMember]
-        public double lastModified { get; private set; }
         [DataMember]
         public string name { get; private set; }
         [DataMember]
@@ -68,31 +60,6 @@ namespace WowCharacterInfo
         public int achievementPoints { get; private set; }
         [DataMember]
         public string thumbnail { get; private set; }
-        [DataMember]
-        public Items items { get; private set; }
-        [DataMember]
-        public Stats stats { get; private set; }
-        [DataMember]
-        public List<Reputation> reputation { get; private set; }
-        [DataMember]
-        public List<Title> titles { get; private set; }
-        [DataMember]
-        public Achievements achievements { get; private set; }
-        [DataMember]
-        public List<Pet> pets { get; private set; }
-        [DataMember]
-        public List<Spec> talents { get; private set; }
-        [DataMember]
-        public List<int> mounts { get; private set; }
 #pragma warning restore 0649
-
-        public DateTime LastModified
-        {
-            get
-            {
-                DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-                return origin.AddSeconds(lastModified / 1000.0f);
-            }
-        }
     }
 }

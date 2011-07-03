@@ -16,6 +16,8 @@ namespace WowCharacterInfo
 
             if (character.status == "nok")
                 MessageBox.Show(character.reason);
+
+            propertyGrid1.SelectedObject = character;
         }
     }
 }

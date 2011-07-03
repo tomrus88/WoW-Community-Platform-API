@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowRealmStatus", "WowRealmS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowCharacterInfo", "WowCharacterInfo\WowCharacterInfo.csproj", "{C65DA1DD-5098-4673-9E01-97539D98F1DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowGuildInfo", "WowGuildInfo\WowGuildInfo.csproj", "{C4A0C23C-2E6F-43F8-B140-370B92707425}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|X64 = Debug|X64
@@ -29,6 +31,12 @@ Global
 		{C65DA1DD-5098-4673-9E01-97539D98F1DD}.Release|X64.Build.0 = Release|X64
 		{C65DA1DD-5098-4673-9E01-97539D98F1DD}.Release|x86.ActiveCfg = Release|x86
 		{C65DA1DD-5098-4673-9E01-97539D98F1DD}.Release|x86.Build.0 = Release|x86
+		{C4A0C23C-2E6F-43F8-B140-370B92707425}.Debug|X64.ActiveCfg = Debug|x86
+		{C4A0C23C-2E6F-43F8-B140-370B92707425}.Debug|x86.ActiveCfg = Debug|x86
+		{C4A0C23C-2E6F-43F8-B140-370B92707425}.Debug|x86.Build.0 = Debug|x86
+		{C4A0C23C-2E6F-43F8-B140-370B92707425}.Release|X64.ActiveCfg = Release|x86
+		{C4A0C23C-2E6F-43F8-B140-370B92707425}.Release|x86.ActiveCfg = Release|x86
+		{C4A0C23C-2E6F-43F8-B140-370B92707425}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
