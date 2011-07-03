@@ -12,10 +12,10 @@ namespace WowCharacterInfo
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var character = Character.Get("us", "Uther", "Tieb");
+            var character = CharacterInfo.Get("eu", "Черный Шрам", "Киллшот");
 
-            if (character == null)
-                MessageBox.Show("Failed!");
+            if (character.status == "nok")
+                MessageBox.Show(character.reason);
         }
     }
 }
