@@ -84,6 +84,10 @@ namespace WowCharacterInfo
         public List<Spec> talents { get; private set; }
         [DataMember]
         public List<int> mounts { get; private set; }
+        [DataMember]
+        public List<int> companions { get; private set; }
+        [DataMember]
+        public Professions professions { get; private set; }
 #pragma warning restore 0649
 
         public DateTime LastModified

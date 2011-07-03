@@ -28,7 +28,7 @@ namespace WowCharacterInfo
                     //return serializer.Deserialize<Character>(dataStr);
 
                     var serializer = new DataContractJsonSerializer(typeof(Character));
-                    return (Character)serializer.ReadObject(client.OpenRead(new Uri(String.Format(baseURL, region, realm, character) + "?fields=items,talents,mounts,titles,pets,stats,reputation,achievements")));
+                    return (Character)serializer.ReadObject(client.OpenRead(new Uri(String.Format(baseURL, region, realm, character) + "?fields=items,talents,mounts,titles,pets,stats,reputation,achievements,companions,professions")));
                 }
                 catch (WebException web)
                 {
