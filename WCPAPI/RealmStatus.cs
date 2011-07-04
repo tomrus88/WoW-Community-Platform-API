@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text;
-using System.Web.Script.Serialization;
+using System.Runtime.Serialization.Json;
 
-namespace WowRealmStatus
+namespace WCPAPI
 {
-    class RealmStatus
+    public class RealmStatus
     {
         public List<Realm> realms = new List<Realm>();
 
@@ -28,13 +27,9 @@ namespace WowRealmStatus
                             args += String.Format("&realm={0}", realms[i]);
                     }
 
-                    byte[] data = client.DownloadData(new Uri(String.Format(baseURL, region, args)));
+                    var serializer = new DataContractJsonSerializer(typeof(RealmStatus));
 
-                    var dataStr = Encoding.UTF8.GetString(data);
-
-                    var serializer = new JavaScriptSerializer();
-
-                    return serializer.Deserialize<RealmStatus>(dataStr);
+                    return (RealmStatus)serializer.ReadObject(client.OpenRead(new Uri(String.Format(baseURL, region, args))));
                 }
                 catch
                 {

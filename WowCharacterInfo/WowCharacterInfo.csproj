@@ -38,33 +38,17 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Achievements.cs" />
-    <Compile Include="Appearance.cs" />
-    <Compile Include="Character.cs" />
-    <Compile Include="CharacterInfo.cs" />
-    <Compile Include="Guild.cs" />
-    <Compile Include="Item.cs" />
-    <Compile Include="Items.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pet.cs" />
-    <Compile Include="Professions.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Progression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reputation.cs" />
-    <Compile Include="Stats.cs" />
-    <Compile Include="Spec.cs" />
-    <Compile Include="Title.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +71,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCPAPI\WCPAPI.csproj">
+      <Project>{A0B6803A-3269-4FF9-AD2B-626BA3977F7E}</Project>
+      <Name>WCPAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

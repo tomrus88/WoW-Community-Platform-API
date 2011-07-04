@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace WowRealmStatus
+namespace WCPAPI
 {
-    class Realm
+    public class Realm
     {
         #pragma warning disable 0649
         public string type;
