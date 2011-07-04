@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Net;
-using System.Text;
-using System.IO;
 using System.Runtime.Serialization.Json;
 
-namespace WowCharacterInfo
+namespace WCPAPI
 {
-    class CharacterInfo
+    public class CharacterInfo
     {
         const string baseURL = "http://{0}.battle.net/api/wow/character/{1}/{2}";
 

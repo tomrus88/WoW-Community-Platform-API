@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace WowCharacterInfo
+namespace WCPAPI
 {
     public enum WowClass
     {

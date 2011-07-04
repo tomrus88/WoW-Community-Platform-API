@@ -1,6 +1,6 @@
-﻿namespace WowCharacterInfo
+﻿namespace WowDataInfo
 {
-    partial class MainForm
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.SuspendLayout();
             // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.Location = new System.Drawing.Point(12, 12);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(629, 487);
-            this.propertyGrid1.TabIndex = 0;
-            // 
-            // MainForm
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 511);
-            this.Controls.Add(this.propertyGrid1);
-            this.Name = "MainForm";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 

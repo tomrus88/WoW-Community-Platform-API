@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WowCharacterInfo
+namespace WCPAPI
 {
     public class Item
     {
@@ -20,6 +20,8 @@ namespace WowCharacterInfo
         public int enchant;
         public List<int> set;
         public int reforge;
+        public int suffix;
+        public int seed;
         public bool extraSocket;
     }
 }

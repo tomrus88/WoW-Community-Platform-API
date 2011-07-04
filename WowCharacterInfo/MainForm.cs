@@ -14,8 +14,8 @@ namespace WowCharacterInfo
         {
             var character = CharacterInfo.Get("eu", "Черный Шрам", "Киллшот");
 
-            if (character.status == "nok")
-                MessageBox.Show(character.reason);
+            if (character.Status == "nok")
+                MessageBox.Show(character.Reason);
 
             propertyGrid1.SelectedObject = character;
         }

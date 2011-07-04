@@ -1,3 +1,7 @@
 *.suo
 bin
 obj
+*.dll
+*.pdb
+*.ldf
+*.mdf

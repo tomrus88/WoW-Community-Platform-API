@@ -1,5 +1,5 @@
 ﻿
-namespace WowCharacterInfo
+namespace WCPAPI
 {
     public class Title
     {
