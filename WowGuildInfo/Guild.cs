@@ -19,9 +19,9 @@ namespace WowGuildInfo
         public int Side;
         [DataMember(Name = "achievementPoints")]
         public int AchievementPoints;
-        [DataMember(Name = "achievements")]
+        [DataMember(Name = "achievements", IsRequired=false)]
         public Achievements Achievements;
-        [DataMember(Name = "members")]
-        public List<Member> Members;
+        [DataMember(Name = "members", IsRequired = false)]
+        public IList<Member> Members;
     }
 }

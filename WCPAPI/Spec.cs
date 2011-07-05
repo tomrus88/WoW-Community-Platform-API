@@ -15,7 +15,7 @@ namespace WCPAPI
         [DataMember(Name = "build")]
         public string Build;
         [DataMember(Name = "trees")]
-        public List<Tree> Trees;
+        public IList<Tree> Trees;
         [DataMember(Name = "glyphs")]
         public Glyphs Glyphs;
     }
@@ -46,10 +46,10 @@ namespace WCPAPI
     public class Glyphs
     {
         [DataMember(Name = "prime")]
-        public List<Glyph> Prime;
+        public IList<Glyph> Prime;
         [DataMember(Name = "major")]
-        public List<Glyph> Major;
+        public IList<Glyph> Major;
         [DataMember(Name = "minor")]
-        public List<Glyph> Minor;
+        public IList<Glyph> Minor;
     }
 }

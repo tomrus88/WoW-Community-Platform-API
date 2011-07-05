@@ -23,7 +23,7 @@ namespace WowRealmStatus
 
         private void Form1_Load(object sender, EventArgs e)
         {
-             m_region = "eu";
+            m_region = "eu";
 
             UpdateRealmStatus();
         }
@@ -52,7 +52,7 @@ namespace WowRealmStatus
                 listView1.Items.Clear();
 
                 listView1.BeginUpdate();
-                foreach (var realm in status.realms)
+                foreach (var realm in status.Realms)
                     listView1.Items.Add(new ListViewItem(realm.ToStringArray()));
                 listView1.EndUpdate();
             }

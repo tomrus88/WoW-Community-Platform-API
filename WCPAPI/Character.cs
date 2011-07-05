@@ -75,19 +75,19 @@ namespace WCPAPI
         [DataMember(Name = "stats", IsRequired = false)]
         public Stats Stats { get; private set; }
         [DataMember(Name = "reputation", IsRequired = false)]
-        public List<Reputation> Reputation { get; private set; }
+        public IList<Reputation> Reputation { get; private set; }
         [DataMember(Name = "titles", IsRequired = false)]
-        public List<Title> Titles { get; private set; }
+        public IList<Title> Titles { get; private set; }
         [DataMember(Name = "achievements", IsRequired = false)]
         public Achievements Achievements { get; private set; }
         [DataMember(Name = "pets", IsRequired = false)]
-        public List<Pet> Pets { get; private set; }
+        public IList<Pet> Pets { get; private set; }
         [DataMember(Name = "talents", IsRequired = false)]
-        public List<Spec> Talents { get; private set; }
+        public IList<Spec> Talents { get; private set; }
         [DataMember(Name = "mounts", IsRequired = false)]
-        public List<int> Mounts { get; private set; }
+        public IList<int> Mounts { get; private set; }
         [DataMember(Name = "companions", IsRequired = false)]
-        public List<int> Companions { get; private set; }
+        public IList<int> Companions { get; private set; }
         [DataMember(Name = "professions", IsRequired = false)]
         public Professions Professions { get; private set; }
         [DataMember(Name = "progression", IsRequired = false)]

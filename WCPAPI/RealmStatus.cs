@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
 namespace WCPAPI
 {
+    [DataContract]
     public class RealmStatus
     {
-        public List<Realm> realms = new List<Realm>();
+        [DataMember(Name = "realms")]
+        public IList<Realm> Realms;
 
         const string baseURL = "http://{0}.battle.net/api/wow/realm/status{1}";
         //const string baseURLCN = "http://battlenet.com.cn/api/wow/realm/status{1}";

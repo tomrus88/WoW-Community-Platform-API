@@ -30,7 +30,7 @@ namespace WCPAPI
         [DataMember(Name = "enchant")]
         public int Enchant;
         [DataMember(Name = "set")]
-        public List<int> Set;
+        public IList<int> Set;
         [DataMember(Name = "reforge")]
         public int Reforge;
         [DataMember(Name = "suffix")]

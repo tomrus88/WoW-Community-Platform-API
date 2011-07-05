@@ -7,16 +7,16 @@ namespace WCPAPI
     public class Achievements
     {
         [DataMember(Name = "achievementsCompleted")]
-        public List<int> AchievementsCompleted;
+        public IList<int> AchievementsCompleted;
         [DataMember(Name = "achievementsCompletedTimestamp")]
-        public List<double> AchievementsCompletedTimestamp;
+        public IList<double> AchievementsCompletedTimestamp;
         [DataMember(Name = "criteria")]
-        public List<int> Criteria;
+        public IList<int> Criteria;
         [DataMember(Name = "criteriaQuantity")]
-        public List<long> CriteriaQuantity;
+        public IList<long> CriteriaQuantity;
         [DataMember(Name = "criteriaTimestamp")]
-        public List<double> CriteriaTimestamp;
+        public IList<double> CriteriaTimestamp;
         [DataMember(Name = "criteriaCreated")]
-        public List<double> CriteriaCreated;
+        public IList<double> CriteriaCreated;
     }
 }

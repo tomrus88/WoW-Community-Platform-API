@@ -9,7 +9,7 @@ namespace WCPAPI
     public class Progression : ICollection
     {
         [DataMember(Name = "raids")]
-        public List<Raid> Raids;
+        public IList<Raid> Raids;
 
         public void CopyTo(Array array, int index)
         {
@@ -49,7 +49,7 @@ namespace WCPAPI
         [DataMember(Name = "id")]
         public int Id;
         [DataMember(Name = "bosses")]
-        public List<Boss> Bosses;
+        public IList<Boss> Bosses;
 
         public override string ToString()
         {

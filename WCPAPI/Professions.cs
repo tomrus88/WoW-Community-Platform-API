@@ -7,9 +7,9 @@ namespace WCPAPI
     public class Professions
     {
         [DataMember(Name = "primary")]
-        public List<Profession> Primary;
+        public IList<Profession> Primary;
         [DataMember(Name = "secondary")]
-        public List<Profession> Secondary;
+        public IList<Profession> Secondary;
     }
 
     [DataContract]
@@ -26,6 +26,6 @@ namespace WCPAPI
         [DataMember(Name = "max")]
         public int Max;
         [DataMember(Name = "recipes")]
-        public List<int> Recipes;
+        public IList<int> Recipes;
     }
 }
