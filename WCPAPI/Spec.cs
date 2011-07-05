@@ -1,35 +1,55 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
+    [DataContract]
     public class Spec
     {
-        public bool selected;
-        public string name;
-        public string icon;
-        public string build;
-        public List<Tree> trees;
-        public Glyphs glyphs;
+        [DataMember(Name = "selected")]
+        public bool Selected;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "icon")]
+        public string Icon;
+        [DataMember(Name = "build")]
+        public string Build;
+        [DataMember(Name = "trees")]
+        public List<Tree> Trees;
+        [DataMember(Name = "glyphs")]
+        public Glyphs Glyphs;
     }
 
+    [DataContract]
     public class Tree
     {
-        public string points;
-        public int total;
+        [DataMember(Name = "points")]
+        public string Points;
+        [DataMember(Name = "total")]
+        public int Total;
     }
 
+    [DataContract]
     public class Glyph
     {
-        public int glyph;
-        public int item;
-        public string name;
-        public string icon;
+        [DataMember(Name = "glyph")]
+        public int Id;
+        [DataMember(Name = "item")]
+        public int Item;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "icon")]
+        public string Icon;
     }
 
+    [DataContract]
     public class Glyphs
     {
-        public List<Glyph> prime;
-        public List<Glyph> major;
-        public List<Glyph> minor;
+        [DataMember(Name = "prime")]
+        public List<Glyph> Prime;
+        [DataMember(Name = "major")]
+        public List<Glyph> Major;
+        [DataMember(Name = "minor")]
+        public List<Glyph> Minor;
     }
 }

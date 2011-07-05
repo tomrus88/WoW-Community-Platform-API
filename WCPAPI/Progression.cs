@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Runtime.Serialization;
 
 namespace WCPAPI
@@ -39,25 +37,36 @@ namespace WCPAPI
         }
     }
 
+    [DataContract]
     public class Raid
     {
-        public string name;
-        public int normal;
-        public int heroic;
-        public int id;
-        public List<Boss> bosses;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "normal")]
+        public int Bormal;
+        [DataMember(Name = "heroic")]
+        public int Heroic;
+        [DataMember(Name = "id")]
+        public int Id;
+        [DataMember(Name = "bosses")]
+        public List<Boss> Bosses;
 
         public override string ToString()
         {
-            return String.Format("Name: {0}", name);
+            return String.Format("Id {0}, Name {1}", Id, Name);
         }
     }
 
+    [DataContract]
     public class Boss
     {
-        public string name;
-        public int normalKills;
-        public int heroicKills;
-        public int id;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "normalKills")]
+        public int NormalKills;
+        [DataMember(Name = "heroicKills")]
+        public int HeroicKills;
+        [DataMember(Name = "id")]
+        public int Id;
     }
 }

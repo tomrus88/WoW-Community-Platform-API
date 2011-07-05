@@ -43,7 +43,7 @@ namespace WCPAPI
     [DataContract]
     public class Character
     {
-#pragma warning disable 0649
+        #pragma warning disable 0649
         // fields for failed response
         [DataMember(Name = "status", IsRequired = false)]
         public string Status { get; private set; }
@@ -96,7 +96,7 @@ namespace WCPAPI
         public Guild Guild { get; private set; }
         [DataMember(Name = "appearance", IsRequired = false)]
         public Appearance Appearance { get; private set; }
-#pragma warning restore 0649
+        #pragma warning restore 0649
 
         public DateTime LastModified
         {

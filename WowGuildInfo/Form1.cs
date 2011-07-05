@@ -14,7 +14,7 @@ namespace WowGuildInfo
         {
             var guild = GuildInfo.Get("eu", "Черный Шрам", "А Нуо");
 
-            MessageBox.Show(guild.name);
+            MessageBox.Show(guild.Name);
         }
     }
 }

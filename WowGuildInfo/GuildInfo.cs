@@ -10,7 +10,7 @@ namespace WowGuildInfo
 
         public static Guild Get(string region, string realm, string guild)
         {
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
                 try
                 {
@@ -19,13 +19,11 @@ namespace WowGuildInfo
                 }
                 catch (WebException web)
                 {
-                    var stream = web.Response.GetResponseStream();
                     var serializer = new DataContractJsonSerializer(typeof(Guild));
-                    return (Guild)serializer.ReadObject(stream);
+                    return (Guild)serializer.ReadObject(web.Response.GetResponseStream());
                 }
-                catch (Exception exc)
+                catch
                 {
-                    exc.ToString();
                     return null;
                 }
             }

@@ -6,23 +6,23 @@ namespace WowGuildInfo
     [DataContract]
     public class Character
     {
-#pragma warning disable 0649
-        [DataMember]
-        public string name { get; private set; }
-        [DataMember]
-        public string realm { get; private set; }
-        [DataMember]
-        public WowClass @class { get; private set; }
-        [DataMember]
-        public WowRace race { get; private set; }
-        [DataMember]
-        public WowGender gender { get; private set; }
-        [DataMember]
-        public int level { get; private set; }
-        [DataMember]
-        public int achievementPoints { get; private set; }
-        [DataMember]
-        public string thumbnail { get; private set; }
-#pragma warning restore 0649
+        #pragma warning disable 0649
+        [DataMember(Name="name")]
+        public string Name { get; private set; }
+        [DataMember(Name = "realm")]
+        public string Realm { get; private set; }
+        [DataMember(Name = "class")]
+        public WowClass Class { get; private set; }
+        [DataMember(Name = "race")]
+        public WowRace Race { get; private set; }
+        [DataMember(Name = "gender")]
+        public WowGender Gender { get; private set; }
+        [DataMember(Name = "level")]
+        public int Level { get; private set; }
+        [DataMember(Name = "achievementPoints")]
+        public int AchievementPoints { get; private set; }
+        [DataMember(Name = "thumbnail")]
+        public string Thumbnail { get; private set; }
+        #pragma warning restore 0649
     }
 }

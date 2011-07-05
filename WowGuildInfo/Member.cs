@@ -1,9 +1,13 @@
-﻿
+﻿using System.Runtime.Serialization;
+
 namespace WowGuildInfo
 {
+    [DataContract]
     public class Member
     {
-        public Character character;
-        public int rank;
+        [DataMember(Name="character")]
+        public Character Character;
+        [DataMember(Name="rank")]
+        public int Rank;
     }
 }

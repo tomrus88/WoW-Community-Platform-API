@@ -1,14 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
+    [DataContract]
     public class Achievements
     {
-        public List<int> achievementsCompleted;
-        public List<double> achievementsCompletedTimestamp;
-        public List<int> criteria;
-        public List<long> criteriaQuantity;
-        public List<double> criteriaTimestamp;
-        public List<double> criteriaCreated;
+        [DataMember(Name = "achievementsCompleted")]
+        public List<int> AchievementsCompleted;
+        [DataMember(Name = "achievementsCompletedTimestamp")]
+        public List<double> AchievementsCompletedTimestamp;
+        [DataMember(Name = "criteria")]
+        public List<int> Criteria;
+        [DataMember(Name = "criteriaQuantity")]
+        public List<long> CriteriaQuantity;
+        [DataMember(Name = "criteriaTimestamp")]
+        public List<double> CriteriaTimestamp;
+        [DataMember(Name = "criteriaCreated")]
+        public List<double> CriteriaCreated;
     }
 }

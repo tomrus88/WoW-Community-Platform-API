@@ -32,13 +32,13 @@ public partial class character_sheet : System.Web.UI.Page
 
         for (var i = 0; i < character.Progression.Count; ++i)
         {
-            for (var j = 0; j < character.Progression.Raids[i].bosses.Count; ++j)
+            for (var j = 0; j < character.Progression.Raids[i].Bosses.Count; ++j)
             {
                 Response.Write(
                 "<tr>" +
-                    "<td>" + character.Progression.Raids[i].name + "</td>" +
-                    "<td>" + character.Progression.Raids[i].bosses[j].name + "</td>" +
-                    "<td>" + character.Progression.Raids[i].bosses[j].normalKills + "/" + character.Progression.Raids[i].bosses[j].heroicKills + "</td>" +
+                    "<td>" + character.Progression.Raids[i].Name + "</td>" +
+                    "<td>" + character.Progression.Raids[i].Bosses[j].Name + "</td>" +
+                    "<td>" + character.Progression.Raids[i].Bosses[j].NormalKills + "/" + character.Progression.Raids[i].Bosses[j].HeroicKills + "</td>" +
                 "</tr>"
                 );
             }

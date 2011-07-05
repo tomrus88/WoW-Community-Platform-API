@@ -10,10 +10,11 @@ namespace WCPAPI
         public List<Realm> realms = new List<Realm>();
 
         const string baseURL = "http://{0}.battle.net/api/wow/realm/status{1}";
+        //const string baseURLCN = "http://battlenet.com.cn/api/wow/realm/status{1}";
 
         public static RealmStatus Get(string region, params object[] realms)
         {
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
                 try
                 {

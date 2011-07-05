@@ -1,18 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
+    [DataContract]
     public class Appearance
     {
-        public int faceVariation;
-        public int skinColor;
-        public int hairVariation;
-        public int hairColor;
-        public int featureVariation;
-        public bool showHelm;
-        public bool showCloak;
+        [DataMember(Name = "faceVariation")]
+        public int FaceVariation;
+        [DataMember(Name = "skinColor")]
+        public int SkinColor;
+        [DataMember(Name = "hairVariation")]
+        public int HairVariation;
+        [DataMember(Name = "hairColor")]
+        public int HairColor;
+        [DataMember(Name = "featureVariation")]
+        public int FeatureVariation;
+        [DataMember(Name = "showHelm")]
+        public bool ShowHelm;
+        [DataMember(Name = "showCloak")]
+        public bool ShowCloak;
     }
 }

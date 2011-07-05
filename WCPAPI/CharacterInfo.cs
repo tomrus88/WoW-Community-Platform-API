@@ -10,7 +10,7 @@ namespace WCPAPI
 
         public static Character Get(string region, string realm, string character)
         {
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
                 try
                 {
@@ -19,13 +19,11 @@ namespace WCPAPI
                 }
                 catch (WebException web)
                 {
-                    var stream = web.Response.GetResponseStream();
                     var serializer = new DataContractJsonSerializer(typeof(Character));
-                    return (Character)serializer.ReadObject(stream);
+                    return (Character)serializer.ReadObject(web.Response.GetResponseStream());
                 }
-                catch (Exception exc)
+                catch
                 {
-                    exc.ToString();
                     return null;
                 }
             }

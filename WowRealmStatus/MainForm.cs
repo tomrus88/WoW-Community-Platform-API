@@ -23,9 +23,7 @@ namespace WowRealmStatus
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var status = RealmStatus.Get("eu", "Черный Шрам", "Седогрив", "Гордунни");
-
-            m_region = "eu";
+             m_region = "eu";
 
             UpdateRealmStatus();
         }

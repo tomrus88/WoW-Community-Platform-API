@@ -1,18 +1,27 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using WCPAPI;
 
 namespace WowGuildInfo
 {
+    [DataContract]
     public class Guild
     {
-        public double lastModified;
-        public string name;
-        public string realm;
-        public int level;
-        public int side;
-        public int achievementPoints;
-
-        public Achievements achievements;
-        public List<Member> members;
+        [DataMember(Name = "lastModified")]
+        public double LastModified;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "realm")]
+        public string Realm;
+        [DataMember(Name = "level")]
+        public int Level;
+        [DataMember(Name = "side")]
+        public int Side;
+        [DataMember(Name = "achievementPoints")]
+        public int AchievementPoints;
+        [DataMember(Name = "achievements")]
+        public Achievements Achievements;
+        [DataMember(Name = "members")]
+        public List<Member> Members;
     }
 }

@@ -1,20 +1,31 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
+    [DataContract]
     public class Professions
     {
-        public Profession[] primary;
-        public Profession[] secondary;
+        [DataMember(Name = "primary")]
+        public List<Profession> Primary;
+        [DataMember(Name = "secondary")]
+        public List<Profession> Secondary;
     }
 
+    [DataContract]
     public class Profession
     {
-        public int id;
-        public string name;
-        public string icon;
-        public int rank;
-        public int max;
-        public List<int> recipes;
+        [DataMember(Name = "id")]
+        public int Id;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "icon")]
+        public string Icon;
+        [DataMember(Name = "rank")]
+        public int Rank;
+        [DataMember(Name = "max")]
+        public int Max;
+        [DataMember(Name = "recipes")]
+        public List<int> Recipes;
     }
 }

@@ -1,4 +1,5 @@
-﻿
+﻿using System.Runtime.Serialization;
+
 namespace WCPAPI
 {
     public enum RepStanding
@@ -13,12 +14,18 @@ namespace WCPAPI
         Exalted = 7,
     }
 
+    [DataContract]
     public class Reputation
     {
-        public int id;
-        public string name;
-        public RepStanding standing;
-        public int value;
-        public int max;
+        [DataMember(Name = "id")]
+        public int Id;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "standing")]
+        public RepStanding Standing;
+        [DataMember(Name = "value")]
+        public int Value;
+        [DataMember(Name = "max")]
+        public int Max;
     }
 }

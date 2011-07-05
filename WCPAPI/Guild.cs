@@ -1,22 +1,36 @@
-﻿
+﻿using System.Runtime.Serialization;
+
 namespace WCPAPI
 {
+    [DataContract]
     public class Guild
     {
-        public string name;
-        public string realm;
-        public int level;
-        public int members;
-        public int achievementPoints;
-        public Emblem emblem;
+        [DataMember(Name = "name")]
+        public string Name;
+        [DataMember(Name = "realm")]
+        public string Realm;
+        [DataMember(Name = "level")]
+        public int Level;
+        [DataMember(Name = "members")]
+        public int Members;
+        [DataMember(Name = "achievementPoints")]
+        public int AchievementPoints;
+        [DataMember(Name = "emblem")]
+        public Emblem Emblem;
     }
 
+    [DataContract]
     public class Emblem
     {
-        public int icon;
-        public string iconColor;
-        public int border;
-        public string borderColor;
-        public string backgroundColor;
+        [DataMember(Name = "icon")]
+        public int Icon;
+        [DataMember(Name = "iconColor")]
+        public string IconColor;
+        [DataMember(Name = "border")]
+        public int Border;
+        [DataMember(Name = "borderColor")]
+        public string BorderColor;
+        [DataMember(Name = "backgroundColor")]
+        public string BackgroundColor;
     }
 }
