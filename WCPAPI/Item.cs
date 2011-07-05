@@ -8,15 +8,15 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "icon")]
-        public string Icon;
+        public string Icon { get; private set; }
         [DataMember(Name = "quality")]
-        public int Quality;
+        public int Quality { get; private set; }
         [DataMember(Name = "tooltipParams")]
-        public TooltipParams TooltipParams;
+        public TooltipParams TooltipParams { get; private set; }
         #pragma warning disable 0649
     }
 
@@ -24,20 +24,20 @@ namespace WCPAPI
     public class TooltipParams
     {
         [DataMember(Name = "gem0")]
-        public int Gem0;
+        public int Gem0 { get; private set; }
         [DataMember(Name = "gem1")]
-        public int Gem1;
+        public int Gem1 { get; private set; }
         [DataMember(Name = "enchant")]
-        public int Enchant;
+        public int Enchant { get; private set; }
         [DataMember(Name = "set")]
-        public IList<int> Set;
+        public IList<int> Set { get; private set; }
         [DataMember(Name = "reforge")]
-        public int Reforge;
+        public int Reforge { get; private set; }
         [DataMember(Name = "suffix")]
-        public int Suffix;
+        public int Suffix { get; private set; }
         [DataMember(Name = "seed")]
-        public int Seed;
+        public int Seed { get; private set; }
         [DataMember(Name = "extraSocket")]
-        public bool ExtraSocket;
+        public bool ExtraSocket { get; private set; }
     }
 }

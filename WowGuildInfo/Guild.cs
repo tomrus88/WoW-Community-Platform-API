@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using WCPAPI;
 
@@ -7,21 +8,32 @@ namespace WowGuildInfo
     [DataContract]
     public class Guild
     {
+        #pragma warning disable 0649
         [DataMember(Name = "lastModified")]
-        public double LastModified;
+        private double m_lastModified;
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "realm")]
-        public string Realm;
+        public string Realm { get; private set; }
         [DataMember(Name = "level")]
-        public int Level;
+        public int Level { get; private set; }
         [DataMember(Name = "side")]
-        public int Side;
+        public int Side { get; private set; }
         [DataMember(Name = "achievementPoints")]
-        public int AchievementPoints;
+        public int AchievementPoints { get; private set; }
         [DataMember(Name = "achievements", IsRequired=false)]
-        public Achievements Achievements;
+        public Achievements Achievements { get; private set; }
         [DataMember(Name = "members", IsRequired = false)]
-        public IList<Member> Members;
+        public IList<Member> Members { get; private set; }
+        #pragma warning restore 0649
+
+        public DateTime LastModified
+        {
+            get
+            {
+                DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+                return origin.AddSeconds(m_lastModified / 1000.0f);
+            }
+        }
     }
 }

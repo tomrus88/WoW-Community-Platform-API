@@ -18,14 +18,14 @@ namespace WCPAPI
     public class Reputation
     {
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "standing")]
-        public RepStanding Standing;
+        public RepStanding Standing { get; private set; }
         [DataMember(Name = "value")]
-        public int Value;
+        public int Value { get; private set; }
         [DataMember(Name = "max")]
-        public int Max;
+        public int Max { get; private set; }
     }
 }

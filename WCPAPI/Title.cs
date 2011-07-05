@@ -6,10 +6,10 @@ namespace WCPAPI
     public class Title
     {
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "selected")]
-        public bool Selected;
+        public bool Selected { get; private set; }
     }
 }

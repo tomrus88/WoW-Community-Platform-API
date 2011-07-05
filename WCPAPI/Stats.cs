@@ -6,108 +6,108 @@ namespace WCPAPI
     public class Stats
     {
         [DataMember(Name = "health")]
-        public int Health;
+        public int Health { get; private set; }
         [DataMember(Name = "powerType")]
-        public string PowerType;
+        public string PowerType { get; private set; }
         [DataMember(Name = "power")]
-        public int Power;
+        public int Power { get; private set; }
         [DataMember(Name = "str")]
-        public int Strength;
+        public int Strength { get; private set; }
         [DataMember(Name = "agi")]
-        public int Agility;
+        public int Agility { get; private set; }
         [DataMember(Name = "sta")]
-        public int Stamina;
+        public int Stamina { get; private set; }
         [DataMember(Name="int")]
-        public int Intellect;
+        public int Intellect { get; private set; }
         [DataMember(Name = "spr")]
-        public int Spirit;
+        public int Spirit { get; private set; }
         [DataMember(Name = "attackPower")]
-        public int AttackPower;
+        public int AttackPower { get; private set; }
         [DataMember(Name = "rangedAttackPower")]
-        public int RangedAttackPower;
+        public int RangedAttackPower { get; private set; }
         [DataMember(Name = "mastery")]
-        public float Mastery;
+        public float Mastery { get; private set; }
         [DataMember(Name = "masteryRating")]
-        public int MasteryRating;
+        public int MasteryRating { get; private set; }
         [DataMember(Name = "crit")]
-        public float Crit;
+        public float Crit { get; private set; }
         [DataMember(Name = "critRating")]
-        public int CritRating;
+        public int CritRating { get; private set; }
         [DataMember(Name = "hitPercent")]
-        public float HitPercent;
+        public float HitPercent { get; private set; }
         [DataMember(Name = "hitRating")]
-        public int HitRating;
+        public int HitRating { get; private set; }
         [DataMember(Name = "hasteRating")]
-        public int HasteRating;
+        public int HasteRating { get; private set; }
         [DataMember(Name = "expertiseRating")]
-        public int ExpertiseRating;
+        public int ExpertiseRating { get; private set; }
         [DataMember(Name = "spellPower")]
-        public int SpellPower;
+        public int SpellPower { get; private set; }
         [DataMember(Name = "spellPen")]
-        public int SpellPen;
+        public int SpellPen { get; private set; }
         [DataMember(Name = "spellCrit")]
-        public float SpellCrit;
+        public float SpellCrit { get; private set; }
         [DataMember(Name = "spellCritRating")]
-        public int SpellCritRating;
+        public int SpellCritRating { get; private set; }
         [DataMember(Name = "spellHitPercent")]
-        public float SpellHitPercent;
+        public float SpellHitPercent { get; private set; }
         [DataMember(Name = "spellHitRating")]
-        public int SpellHitRating;
+        public int SpellHitRating { get; private set; }
         [DataMember(Name = "mana5")]
-        public float Mana5;
+        public float Mana5 { get; private set; }
         [DataMember(Name = "mana5Combat")]
-        public float Mana5Combat;
+        public float Mana5Combat { get; private set; }
         [DataMember(Name = "armor")]
-        public int Armor;
+        public int Armor { get; private set; }
         [DataMember(Name = "dodge")]
-        public float Dodge;
+        public float Dodge { get; private set; }
         [DataMember(Name = "dodgeRating")]
-        public int DodgeRating;
+        public int DodgeRating { get; private set; }
         [DataMember(Name = "parry")]
-        public float Parry;
+        public float Parry { get; private set; }
         [DataMember(Name = "parryRating")]
-        public int ParryRating;
+        public int ParryRating { get; private set; }
         [DataMember(Name = "block")]
-        public float Block;
+        public float Block { get; private set; }
         [DataMember(Name = "blockRating")]
-        public int BlockRating;
+        public int BlockRating { get; private set; }
         [DataMember(Name = "resil")]
-        public int Resilience;
+        public int Resilience { get; private set; }
         [DataMember(Name = "mainHandDmgMin")]
-        public float MainHandDmgMin;
+        public float MainHandDmgMin { get; private set; }
         [DataMember(Name = "mainHandDmgMax")]
-        public float MainHandDmgMax;
+        public float MainHandDmgMax { get; private set; }
         [DataMember(Name = "mainHandSpeed")]
-        public float MainHandSpeed;
+        public float MainHandSpeed { get; private set; }
         [DataMember(Name = "mainHandDps")]
-        public float MainHandDps;
+        public float MainHandDps { get; private set; }
         [DataMember(Name = "mainHandExpertise")]
-        public int MainHandExpertise;
+        public int MainHandExpertise { get; private set; }
         [DataMember(Name = "offHandDmgMin")]
-        public float OffHandDmgMin;
+        public float OffHandDmgMin { get; private set; }
         [DataMember(Name = "offHandDmgMax")]
-        public float OffHandDmgMax;
+        public float OffHandDmgMax { get; private set; }
         [DataMember(Name = "offHandSpeed")]
-        public float OffHandSpeed;
+        public float OffHandSpeed { get; private set; }
         [DataMember(Name = "offHandDps")]
-        public float OffHandDps;
+        public float OffHandDps { get; private set; }
         [DataMember(Name = "offHandExpertise")]
-        public int OffHandExpertise;
+        public int OffHandExpertise { get; private set; }
         [DataMember(Name = "rangedDmgMin")]
-        public float RangedDmgMin;
+        public float RangedDmgMin { get; private set; }
         [DataMember(Name = "rangedDmgMax")]
-        public float RangedDmgMax;
+        public float RangedDmgMax { get; private set; }
         [DataMember(Name = "rangedSpeed")]
-        public float RangedSpeed;
+        public float RangedSpeed { get; private set; }
         [DataMember(Name = "rangedDps")]
-        public float RangedDps;
+        public float RangedDps { get; private set; }
         [DataMember(Name = "rangedCrit")]
-        public float RangedCrit;
+        public float RangedCrit { get; private set; }
         [DataMember(Name = "rangedCritRating")]
-        public int RangedCritRating;
+        public int RangedCritRating { get; private set; }
         [DataMember(Name = "rangedHitPercent")]
-        public float RangedHitPercent;
+        public float RangedHitPercent { get; private set; }
         [DataMember(Name = "rangedHitRating")]
-        public int RangedHitRating;
+        public int RangedHitRating { get; private set; }
     }
 }

@@ -7,25 +7,25 @@ namespace WCPAPI
     public class Professions
     {
         [DataMember(Name = "primary")]
-        public IList<Profession> Primary;
+        public IList<Profession> Primary { get; private set; }
         [DataMember(Name = "secondary")]
-        public IList<Profession> Secondary;
+        public IList<Profession> Secondary { get; private set; }
     }
 
     [DataContract]
     public class Profession
     {
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "icon")]
-        public string Icon;
+        public string Icon { get; private set; }
         [DataMember(Name = "rank")]
-        public int Rank;
+        public int Rank { get; private set; }
         [DataMember(Name = "max")]
-        public int Max;
+        public int Max { get; private set; }
         [DataMember(Name = "recipes")]
-        public IList<int> Recipes;
+        public IList<int> Recipes { get; private set; }
     }
 }

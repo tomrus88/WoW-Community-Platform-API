@@ -28,13 +28,13 @@ namespace WCPAPI
         [DataMember(Name = "population")]
         private string m_population;
         [DataMember(Name = "queue")]
-        public bool Queue;
+        public bool Queue { get; private set; }
         [DataMember(Name = "status")]
-        public bool Status;
+        public bool Status { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "slug")]
-        public string Slug;
+        public string Slug { get; private set; }
         #pragma warning restore 0649
 
         public RealmType Type

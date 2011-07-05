@@ -6,8 +6,8 @@ namespace WowGuildInfo
     public class Member
     {
         [DataMember(Name="character")]
-        public Character Character;
+        public Character Character { get; private set; }
         [DataMember(Name="rank")]
-        public int Rank;
+        public int Rank { get; private set; }
     }
 }

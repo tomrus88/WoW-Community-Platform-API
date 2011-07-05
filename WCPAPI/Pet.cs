@@ -6,12 +6,12 @@ namespace WCPAPI
     public class Pet
     {
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "creature")]
-        public int Creature;
+        public int Creature { get; private set; }
         [DataMember(Name = "slot")]
-        public int Slot;
+        public int Slot { get; private set; }
         [DataMember(Name = "selected")]
-        public bool Selected;
+        public bool Selected { get; private set; }
     }
 }

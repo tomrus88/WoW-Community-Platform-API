@@ -6,31 +6,31 @@ namespace WCPAPI
     public class Guild
     {
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "realm")]
-        public string Realm;
+        public string Realm { get; private set; }
         [DataMember(Name = "level")]
-        public int Level;
+        public int Level { get; private set; }
         [DataMember(Name = "members")]
-        public int Members;
+        public int Members { get; private set; }
         [DataMember(Name = "achievementPoints")]
-        public int AchievementPoints;
+        public int AchievementPoints { get; private set; }
         [DataMember(Name = "emblem")]
-        public Emblem Emblem;
+        public Emblem Emblem { get; private set; }
     }
 
     [DataContract]
     public class Emblem
     {
         [DataMember(Name = "icon")]
-        public int Icon;
+        public int Icon { get; private set; }
         [DataMember(Name = "iconColor")]
-        public string IconColor;
+        public string IconColor { get; private set; }
         [DataMember(Name = "border")]
-        public int Border;
+        public int Border { get; private set; }
         [DataMember(Name = "borderColor")]
-        public string BorderColor;
+        public string BorderColor { get; private set; }
         [DataMember(Name = "backgroundColor")]
-        public string BackgroundColor;
+        public string BackgroundColor { get; private set; }
     }
 }

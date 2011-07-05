@@ -9,7 +9,7 @@ namespace WCPAPI
     public class Progression : ICollection
     {
         [DataMember(Name = "raids")]
-        public IList<Raid> Raids;
+        public IList<Raid> Raids { get; private set; }
 
         public void CopyTo(Array array, int index)
         {
@@ -41,15 +41,15 @@ namespace WCPAPI
     public class Raid
     {
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "normal")]
-        public int Bormal;
+        public int Normal { get; private set; }
         [DataMember(Name = "heroic")]
-        public int Heroic;
+        public int Heroic { get; private set; }
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "bosses")]
-        public IList<Boss> Bosses;
+        public IList<Boss> Bosses { get; private set; }
 
         public override string ToString()
         {
@@ -61,12 +61,12 @@ namespace WCPAPI
     public class Boss
     {
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "normalKills")]
-        public int NormalKills;
+        public int NormalKills { get; private set; }
         [DataMember(Name = "heroicKills")]
-        public int HeroicKills;
+        public int HeroicKills { get; private set; }
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
     }
 }

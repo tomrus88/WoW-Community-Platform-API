@@ -6,18 +6,18 @@ namespace WCPAPI
     public class Appearance
     {
         [DataMember(Name = "faceVariation")]
-        public int FaceVariation;
+        public int FaceVariation { get; private set; }
         [DataMember(Name = "skinColor")]
-        public int SkinColor;
+        public int SkinColor { get; private set; }
         [DataMember(Name = "hairVariation")]
-        public int HairVariation;
+        public int HairVariation { get; private set; }
         [DataMember(Name = "hairColor")]
-        public int HairColor;
+        public int HairColor { get; private set; }
         [DataMember(Name = "featureVariation")]
-        public int FeatureVariation;
+        public int FeatureVariation { get; private set; }
         [DataMember(Name = "showHelm")]
-        public bool ShowHelm;
+        public bool ShowHelm { get; private set; }
         [DataMember(Name = "showCloak")]
-        public bool ShowCloak;
+        public bool ShowCloak { get; private set; }
     }
 }
