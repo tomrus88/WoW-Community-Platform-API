@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace WowDataInfo
@@ -18,11 +12,13 @@ namespace WowDataInfo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var item = ItemData.Get("eu", 43535);
+            propertyGrid1.SelectedObject = item;
+
             // http://eu.battle.net/api/wow/data/character/races
             // http://eu.battle.net/api/wow/data/character/classes
             // http://eu.battle.net/api/wow/data/guild/rewards
             // http://eu.battle.net/api/wow/data/guild/perks
-            // http://eu.battle.net/api/wow/data/item/<id>
         }
     }
 }
