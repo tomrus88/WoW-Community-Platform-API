@@ -12,7 +12,7 @@ namespace WowDataInfo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var item = ItemData.Get("eu", 43535);
+            var item = ItemData.Get("eu", 70534);
             propertyGrid1.SelectedObject = item;
 
             // http://eu.battle.net/api/wow/data/character/races
