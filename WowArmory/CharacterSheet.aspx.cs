@@ -30,9 +30,9 @@ public partial class character_sheet : System.Web.UI.Page
                 "<th>Kills (N/H)</th>" +
             "</tr>");
 
-        for (var i = 0; i < character.Progression.Count; ++i)
+        for (var i = 0; i < character.Progression.Raids.Length; ++i)
         {
-            for (var j = 0; j < character.Progression.Raids[i].Bosses.Count; ++j)
+            for (var j = 0; j < character.Progression.Raids[i].Bosses.Length; ++j)
             {
                 Response.Write(
                 "<tr>" +

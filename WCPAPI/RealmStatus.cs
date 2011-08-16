@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
@@ -10,7 +9,7 @@ namespace WCPAPI
     public class RealmStatus
     {
         [DataMember(Name = "realms")]
-        public IList<Realm> Realms { get; private set; }
+        public Realm[] Realms { get; private set; }
 
         const string baseURL = "http://{0}.battle.net/api/wow/realm/status{1}";
         //const string baseURLCN = "http://battlenet.com.cn/api/wow/realm/status{1}";

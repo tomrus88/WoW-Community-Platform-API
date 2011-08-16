@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
@@ -7,9 +6,9 @@ namespace WCPAPI
     public class Professions
     {
         [DataMember(Name = "primary")]
-        public IList<Profession> Primary { get; private set; }
+        public Profession[] Primary { get; private set; }
         [DataMember(Name = "secondary")]
-        public IList<Profession> Secondary { get; private set; }
+        public Profession[] Secondary { get; private set; }
     }
 
     [DataContract]
@@ -26,6 +25,6 @@ namespace WCPAPI
         [DataMember(Name = "max")]
         public int Max { get; private set; }
         [DataMember(Name = "recipes")]
-        public IList<int> Recipes { get; private set; }
+        public int[] Recipes { get; private set; }
     }
 }

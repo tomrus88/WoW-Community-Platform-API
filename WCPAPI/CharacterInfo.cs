@@ -15,7 +15,7 @@ namespace WCPAPI
                 try
                 {
                     var serializer = new DataContractJsonSerializer(typeof(Character));
-                    return (Character)serializer.ReadObject(client.OpenRead(new Uri(String.Format(baseURL, region, realm, character) + "?fields=items,talents,mounts,titles,pets,stats,reputation,achievements,companions,professions,guild,appearance,progression")));
+                    return (Character)serializer.ReadObject(client.OpenRead(new Uri(String.Format(baseURL, region, realm, character) + "?fields=items,talents,mounts,titles,pets,stats,reputation,achievements,companions,professions,guild,appearance,progression,quests,pvp")));
                 }
                 catch (WebException web)
                 {

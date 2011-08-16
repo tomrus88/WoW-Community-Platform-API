@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
@@ -30,7 +29,7 @@ namespace WCPAPI
         [DataMember(Name = "enchant")]
         public int Enchant { get; private set; }
         [DataMember(Name = "set")]
-        public IList<int> Set { get; private set; }
+        public int[] Set { get; private set; }
         [DataMember(Name = "reforge")]
         public int Reforge { get; private set; }
         [DataMember(Name = "suffix")]

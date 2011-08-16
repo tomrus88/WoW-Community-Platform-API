@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
@@ -15,7 +14,7 @@ namespace WCPAPI
         [DataMember(Name = "build")]
         public string Build { get; private set; }
         [DataMember(Name = "trees")]
-        public IList<Tree> Trees { get; private set; }
+        public Tree[] Trees { get; private set; }
         [DataMember(Name = "glyphs")]
         public Glyphs Glyphs { get; private set; }
     }
@@ -46,10 +45,10 @@ namespace WCPAPI
     public class Glyphs
     {
         [DataMember(Name = "prime")]
-        public IList<Glyph> Prime { get; private set; }
+        public Glyph[] Prime { get; private set; }
         [DataMember(Name = "major")]
-        public IList<Glyph> Major { get; private set; }
+        public Glyph[] Major { get; private set; }
         [DataMember(Name = "minor")]
-        public IList<Glyph> Minor { get; private set; }
+        public Glyph[] Minor { get; private set; }
     }
 }

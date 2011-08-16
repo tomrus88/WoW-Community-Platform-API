@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
@@ -7,16 +6,16 @@ namespace WCPAPI
     public class Achievements
     {
         [DataMember(Name = "achievementsCompleted")]
-        public IList<int> AchievementsCompleted { get; private set; }
+        public int[] AchievementsCompleted { get; private set; }
         [DataMember(Name = "achievementsCompletedTimestamp")]
-        public IList<double> AchievementsCompletedTimestamp { get; private set; }
+        public double[] AchievementsCompletedTimestamp { get; private set; }
         [DataMember(Name = "criteria")]
-        public IList<int> Criteria { get; private set; }
+        public int[] Criteria { get; private set; }
         [DataMember(Name = "criteriaQuantity")]
-        public IList<long> CriteriaQuantity { get; private set; }
+        public long[] CriteriaQuantity { get; private set; }
         [DataMember(Name = "criteriaTimestamp")]
-        public IList<double> CriteriaTimestamp { get; private set; }
+        public double[] CriteriaTimestamp { get; private set; }
         [DataMember(Name = "criteriaCreated")]
-        public IList<double> CriteriaCreated { get; private set; }
+        public double[] CriteriaCreated { get; private set; }
     }
 }

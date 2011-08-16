@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using WCPAPI;
 
@@ -24,7 +23,7 @@ namespace WowGuildInfo
         [DataMember(Name = "achievements", IsRequired=false)]
         public Achievements Achievements { get; private set; }
         [DataMember(Name = "members", IsRequired = false)]
-        public IList<Member> Members { get; private set; }
+        public Member[] Members { get; private set; }
         #pragma warning restore 0649
 
         public DateTime LastModified

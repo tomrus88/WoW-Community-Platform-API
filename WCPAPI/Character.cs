@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace WCPAPI
@@ -75,19 +74,19 @@ namespace WCPAPI
         [DataMember(Name = "stats", IsRequired = false)]
         public Stats Stats { get; private set; }
         [DataMember(Name = "reputation", IsRequired = false)]
-        public IList<Reputation> Reputation { get; private set; }
+        public Reputation[] Reputation { get; private set; }
         [DataMember(Name = "titles", IsRequired = false)]
-        public IList<Title> Titles { get; private set; }
+        public Title[] Titles { get; private set; }
         [DataMember(Name = "achievements", IsRequired = false)]
         public Achievements Achievements { get; private set; }
         [DataMember(Name = "pets", IsRequired = false)]
-        public IList<Pet> Pets { get; private set; }
+        public Pet[] Pets { get; private set; }
         [DataMember(Name = "talents", IsRequired = false)]
-        public IList<Spec> Talents { get; private set; }
+        public Spec[] Talents { get; private set; }
         [DataMember(Name = "mounts", IsRequired = false)]
-        public IList<int> Mounts { get; private set; }
+        public int[] Mounts { get; private set; }
         [DataMember(Name = "companions", IsRequired = false)]
-        public IList<int> Companions { get; private set; }
+        public int[] Companions { get; private set; }
         [DataMember(Name = "professions", IsRequired = false)]
         public Professions Professions { get; private set; }
         [DataMember(Name = "progression", IsRequired = false)]
@@ -96,6 +95,9 @@ namespace WCPAPI
         public Guild Guild { get; private set; }
         [DataMember(Name = "appearance", IsRequired = false)]
         public Appearance Appearance { get; private set; }
+        [DataMember(Name = "quests", IsRequired = false)]
+        public int[] Quests { get; private set; }
+        // TODO: pvp
         #pragma warning restore 0649
 
         public DateTime LastModified

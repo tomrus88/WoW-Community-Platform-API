@@ -1,40 +1,13 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
     [DataContract]
-    public class Progression : ICollection
+    public class Progression
     {
         [DataMember(Name = "raids")]
-        public IList<Raid> Raids { get; private set; }
-
-        public void CopyTo(Array array, int index)
-        {
-            Raids.CopyTo((Raid[])array, index);
-        }
-
-        public int Count
-        {
-            get { return Raids.Count; }
-        }
-
-        public bool IsSynchronized
-        {
-            get { return false; }
-        }
-
-        public object SyncRoot
-        {
-            get { return null; }
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            return Raids.GetEnumerator();
-        }
+        public Raid[] Raids { get; private set; }
     }
 
     [DataContract]
@@ -49,7 +22,7 @@ namespace WCPAPI
         [DataMember(Name = "id")]
         public int Id { get; private set; }
         [DataMember(Name = "bosses")]
-        public IList<Boss> Bosses { get; private set; }
+        public Boss[] Bosses { get; private set; }
 
         public override string ToString()
         {
