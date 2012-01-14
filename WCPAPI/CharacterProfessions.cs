@@ -3,7 +3,7 @@
 namespace WCPAPI
 {
     [DataContract]
-    public class Professions
+    public class CharacterProfessions
     {
         [DataMember(Name = "primary")]
         public Profession[] Primary { get; private set; }

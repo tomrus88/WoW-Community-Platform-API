@@ -42,22 +42,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Achievements.cs" />
-    <Compile Include="Appearance.cs" />
+    <Compile Include="ApiRequest.cs" />
+    <Compile Include="BonusStat.cs" />
+    <Compile Include="CharacterAppearance.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="CharacterInfo.cs" />
+    <Compile Include="GuildRewards.cs" />
+    <Compile Include="Data\GuildRewardsData.cs" />
+    <Compile Include="WowClasses.cs" />
+    <Compile Include="Data\CharacterData.cs" />
+    <Compile Include="CharacterGuild.cs" />
+    <Compile Include="CharacterItem.cs" />
+    <Compile Include="CharacterItems.cs" />
+    <Compile Include="CharacterPet.cs" />
+    <Compile Include="CharacterProfessions.cs" />
+    <Compile Include="CharacterProgression.cs" />
+    <Compile Include="Data\ClassesData.cs" />
+    <Compile Include="Data\RacesData.cs" />
     <Compile Include="Guild.cs" />
+    <Compile Include="GuildCharacter.cs" />
+    <Compile Include="Data\GuildData.cs" />
+    <Compile Include="GuildMember.cs" />
     <Compile Include="Item.cs" />
-    <Compile Include="Items.cs" />
-    <Compile Include="Pet.cs" />
-    <Compile Include="Professions.cs" />
-    <Compile Include="Progression.cs" />
+    <Compile Include="Data\ItemData.cs" />
+    <Compile Include="ItemSource.cs" />
+    <Compile Include="ItemSpell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WowRaces.cs" />
     <Compile Include="Realm.cs" />
-    <Compile Include="RealmStatus.cs" />
-    <Compile Include="Reputation.cs" />
-    <Compile Include="Spec.cs" />
-    <Compile Include="Stats.cs" />
-    <Compile Include="Title.cs" />
+    <Compile Include="Data\RealmData.cs" />
+    <Compile Include="CharacterReputation.cs" />
+    <Compile Include="CharacterSpec.cs" />
+    <Compile Include="CharacterStats.cs" />
+    <Compile Include="CharacterTitle.cs" />
+    <Compile Include="SocketInfo.cs" />
+    <Compile Include="SpellInfo.cs" />
+    <Compile Include="WeaponInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

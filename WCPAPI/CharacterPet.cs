@@ -3,7 +3,7 @@
 namespace WCPAPI
 {
     [DataContract]
-    public class Pet
+    public class CharacterPet
     {
         [DataMember(Name = "name")]
         public string Name { get; private set; }

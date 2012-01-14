@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace WowDataInfo
+namespace WCPAPI
 {
     [DataContract]
     public class ItemSource

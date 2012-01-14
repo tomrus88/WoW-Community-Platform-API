@@ -1,10 +1,10 @@
 ﻿using System.Runtime.Serialization;
 using WCPAPI;
 
-namespace WowGuildInfo
+namespace WCPAPI
 {
     [DataContract]
-    public class Character
+    public class GuildCharacter
     {
         #pragma warning disable 0649
         [DataMember(Name="name")]
@@ -12,11 +12,11 @@ namespace WowGuildInfo
         [DataMember(Name = "realm")]
         public string Realm { get; private set; }
         [DataMember(Name = "class")]
-        public WowClass Class { get; private set; }
+        public CharacterClass Class { get; private set; }
         [DataMember(Name = "race")]
-        public WowRace Race { get; private set; }
+        public CharacterRace Race { get; private set; }
         [DataMember(Name = "gender")]
-        public WowGender Gender { get; private set; }
+        public CharacterGender Gender { get; private set; }
         [DataMember(Name = "level")]
         public int Level { get; private set; }
         [DataMember(Name = "achievementPoints")]

@@ -1,12 +1,12 @@
 ﻿using System.Runtime.Serialization;
 
-namespace WowGuildInfo
+namespace WCPAPI
 {
     [DataContract]
-    public class Member
+    public class GuildMember
     {
         [DataMember(Name="character")]
-        public Character Character { get; private set; }
+        public GuildCharacter Character { get; private set; }
         [DataMember(Name="rank")]
         public int Rank { get; private set; }
     }

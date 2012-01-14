@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace WCPAPI
 {
     [DataContract]
-    public class Progression
+    public class CharacterProgression
     {
         [DataMember(Name = "raids")]
         public Raid[] Raids { get; private set; }

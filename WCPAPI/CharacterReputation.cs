@@ -15,7 +15,7 @@ namespace WCPAPI
     }
 
     [DataContract]
-    public class Reputation
+    public class CharacterReputation
     {
         [DataMember(Name = "id")]
         public int Id { get; private set; }

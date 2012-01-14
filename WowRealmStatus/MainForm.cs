@@ -30,12 +30,12 @@ namespace WowRealmStatus
 
         private void UpdateRealmStatus()
         {
-            Task<RealmStatus>.Factory.StartNew(() => RealmStatus.Get(m_region)).ContinueWith(task => FillListView(task.Result));
+            Task<RealmData>.Factory.StartNew(() => RealmData.Get(m_region)).ContinueWith(task => FillListView(task.Result));
         }
 
-        delegate void AddListViewItem(RealmStatus r);
+        delegate void AddListViewItem(RealmData r);
 
-        private void FillListView(RealmStatus status)
+        private void FillListView(RealmData status)
         {
             if (status == null)
             {

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace WCPAPI
 {
-    public enum WowClass
+    public enum CharacterClass
     {
         Warrior = 1,
         Paladin = 2,
@@ -17,7 +17,7 @@ namespace WCPAPI
         Druid = 11
     }
 
-    public enum WowRace
+    public enum CharacterRace
     {
         Human = 1,
         Orc = 2,
@@ -33,10 +33,33 @@ namespace WCPAPI
         Worgen = 22
     }
 
-    public enum WowGender
+    public enum CharacterGender
     {
         Male = 0,
         Female = 1
+    }
+
+    [Flags]
+    public enum CharacterFields : int
+    {
+        None = 0,
+        Guild = 1,
+        Stats = 2,
+        Talents = 4,
+        Items = 8,
+        Reputation = 0x10,
+        Titles = 0x20,
+        Professions = 0x40,
+        Appearance = 0x80,
+        Companions = 0x100,
+        Mounts = 0x200,
+        Pets = 0x400,
+        Achievements = 0x800,
+        Progression = 0x1000,
+        PvP = 0x2000,
+        Quests = 0x4000,
+
+        All = 0x7FFF
     }
 
     [DataContract]
@@ -50,17 +73,17 @@ namespace WCPAPI
         public string Reason { get; private set; }
 
         [DataMember(Name = "lastModified")]
-        private double m_lastModified { get; set; }
+        private long m_lastModified { get; set; }
         [DataMember(Name = "name")]
         public string Name { get; private set; }
         [DataMember(Name = "realm")]
         public string Realm { get; private set; }
         [DataMember(Name = "class")]
-        public WowClass Class { get; private set; }
+        public CharacterClass Class { get; private set; }
         [DataMember(Name = "race")]
-        public WowRace Race { get; private set; }
+        public CharacterRace Race { get; private set; }
         [DataMember(Name = "gender")]
-        public WowGender Gender { get; private set; }
+        public CharacterGender Gender { get; private set; }
         [DataMember(Name = "level")]
         public int Level { get; private set; }
         [DataMember(Name = "achievementPoints")]
@@ -70,31 +93,31 @@ namespace WCPAPI
 
         // Optional fields
         [DataMember(Name = "items", IsRequired = false)]
-        public Items Items { get; private set; }
+        public CharacterItems Items { get; private set; }
         [DataMember(Name = "stats", IsRequired = false)]
-        public Stats Stats { get; private set; }
+        public CharacterStats Stats { get; private set; }
         [DataMember(Name = "reputation", IsRequired = false)]
-        public Reputation[] Reputation { get; private set; }
+        public CharacterReputation[] Reputation { get; private set; }
         [DataMember(Name = "titles", IsRequired = false)]
-        public Title[] Titles { get; private set; }
+        public CharacterTitle[] Titles { get; private set; }
         [DataMember(Name = "achievements", IsRequired = false)]
         public Achievements Achievements { get; private set; }
         [DataMember(Name = "pets", IsRequired = false)]
-        public Pet[] Pets { get; private set; }
+        public CharacterPet[] Pets { get; private set; }
         [DataMember(Name = "talents", IsRequired = false)]
-        public Spec[] Talents { get; private set; }
+        public CharacterSpec[] Talents { get; private set; }
         [DataMember(Name = "mounts", IsRequired = false)]
         public int[] Mounts { get; private set; }
         [DataMember(Name = "companions", IsRequired = false)]
         public int[] Companions { get; private set; }
         [DataMember(Name = "professions", IsRequired = false)]
-        public Professions Professions { get; private set; }
+        public CharacterProfessions Professions { get; private set; }
         [DataMember(Name = "progression", IsRequired = false)]
-        public Progression Progression { get; private set; }
+        public CharacterProgression Progression { get; private set; }
         [DataMember(Name = "guild", IsRequired = false)]
-        public Guild Guild { get; private set; }
+        public CharacterGuild Guild { get; private set; }
         [DataMember(Name = "appearance", IsRequired = false)]
-        public Appearance Appearance { get; private set; }
+        public CharacterAppearance Appearance { get; private set; }
         [DataMember(Name = "quests", IsRequired = false)]
         public int[] Quests { get; private set; }
         // TODO: pvp

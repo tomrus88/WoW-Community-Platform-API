@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WCPAPI;
 
 namespace WowGuildInfo
 {
@@ -12,7 +13,7 @@ namespace WowGuildInfo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var guild = GuildInfo.Get("eu", "Черный Шрам", "А Нуо");
+            var guild = GuildData.Get("eu", "Черный Шрам", "А Нуо", GuildFields.All);
 
             MessageBox.Show(guild.Name);
         }

@@ -13,9 +13,9 @@ namespace WowCharacterInfo
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var character = CharacterInfo.Get("eu", "Черный Шрам", "Киллшот");
+            var character = CharacterData.Get("eu", "Черный Шрам", "Киллшот", CharacterFields.All, Locale.ru_RU);
 
-            if (character.Status == "nok")
+            if (character == null || character.Status == "nok")
                 MessageBox.Show(character.Reason);
 
             propertyGrid1.SelectedObject = character;

@@ -3,7 +3,7 @@
 namespace WCPAPI
 {
     [DataContract]
-    public class Appearance
+    public class CharacterAppearance
     {
         [DataMember(Name = "faceVariation")]
         public int FaceVariation { get; private set; }

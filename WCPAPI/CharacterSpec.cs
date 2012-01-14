@@ -3,7 +3,7 @@
 namespace WCPAPI
 {
     [DataContract]
-    public class Spec
+    public class CharacterSpec
     {
         [DataMember(Name = "selected")]
         public bool Selected { get; private set; }
