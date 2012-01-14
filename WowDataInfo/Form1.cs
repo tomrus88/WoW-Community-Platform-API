@@ -26,7 +26,9 @@ namespace WowDataInfo
 
             //var quest = QuestData.Get("eu", 25, Locale.ru_RU);
 
-            var recipe = RecipeData.Get("eu", 2149, Locale.ru_RU);
+            //var recipe = RecipeData.Get("eu", 2149, Locale.ru_RU);
+
+            var arena = ArenaLadderData.Get("eu", "шквал", "2v2");
 
             // http://eu.battle.net/api/wow/data/guild/perks
             // http://us.battle.net/api/wow/data/character/achievements

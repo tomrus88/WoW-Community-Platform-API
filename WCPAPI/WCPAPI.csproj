@@ -43,10 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Achievements.cs" />
+    <Compile Include="ApiError.cs" />
     <Compile Include="ApiRequest.cs" />
+    <Compile Include="ArenaTeam.cs" />
+    <Compile Include="ArenaTeamMember.cs" />
     <Compile Include="BonusStat.cs" />
     <Compile Include="CharacterAppearance.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="ArenaLadder.cs" />
+    <Compile Include="Data\ArenaLadderData.cs" />
     <Compile Include="Data\RecipeData.cs" />
     <Compile Include="Data\QuestData.cs" />
     <Compile Include="Data\GuildPerksData.cs" />
@@ -63,7 +68,7 @@
     <Compile Include="Data\ClassesData.cs" />
     <Compile Include="Data\RacesData.cs" />
     <Compile Include="Guild.cs" />
-    <Compile Include="GuildCharacter.cs" />
+    <Compile Include="MetaCharacter.cs" />
     <Compile Include="Data\GuildData.cs" />
     <Compile Include="GuildMember.cs" />
     <Compile Include="Item.cs" />

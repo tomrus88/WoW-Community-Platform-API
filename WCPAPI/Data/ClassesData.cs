@@ -10,7 +10,7 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "classes")]
-        public Class[] Classes;
+        public Class[] Classes { get; private set; }
         #pragma warning restore 0649
 
         const string baseURL = "http://{0}.battle.net/api/wow/data/character/classes";
@@ -35,12 +35,12 @@ namespace WCPAPI
     public class Class
     {
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "mask")]
-        public int Mask;
+        public int Mask { get; private set; }
         [DataMember(Name = "powerType")]
-        public string PowerType;
+        public string PowerType { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
     }
 }

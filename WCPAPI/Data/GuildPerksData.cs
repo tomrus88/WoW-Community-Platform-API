@@ -10,7 +10,7 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "perks")]
-        public GuildPerk[] Perks;
+        public GuildPerk[] Perks { get; private set; }
         #pragma warning restore 0649
 
         const string baseURL = "http://{0}.battle.net/api/wow/data/guild/perks";
@@ -35,8 +35,8 @@ namespace WCPAPI
     public class GuildPerk
     {
         [DataMember(Name = "guildLevel")]
-        public int GuildLevel;
+        public int GuildLevel { get; private set; }
         [DataMember(Name = "spell")]
-        public SpellInfo Spell;
+        public SpellInfo Spell { get; private set; }
     }
 }

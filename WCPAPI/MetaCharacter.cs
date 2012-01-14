@@ -1,10 +1,9 @@
 ﻿using System.Runtime.Serialization;
-using WCPAPI;
 
 namespace WCPAPI
 {
     [DataContract]
-    public class GuildCharacter
+    public class MetaCharacter
     {
         #pragma warning disable 0649
         [DataMember(Name="name")]

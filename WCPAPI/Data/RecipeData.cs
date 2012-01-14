@@ -10,13 +10,13 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
         [DataMember(Name = "profession")]
-        public string Profession;
+        public string Profession { get; private set; }
         [DataMember(Name = "icon")]
-        public string Icon;
+        public string Icon { get; private set; }
         #pragma warning restore 0649
 
         const string baseURL = "http://{0}.battle.net/api/wow/recipe/{1}";

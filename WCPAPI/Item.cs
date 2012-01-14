@@ -6,12 +6,6 @@ namespace WCPAPI
     public class Item
     {
         #pragma warning disable 0649
-        // fields for failed response
-        [DataMember(Name = "status", IsRequired = false)]
-        public string Status { get; private set; }
-        [DataMember(Name = "reason", IsRequired = false)]
-        public string Reason { get; private set; }
-
         [DataMember(Name = "id")]
         public int Id { get; private set; }
         [DataMember(Name = "disenchantingSkillRank")]

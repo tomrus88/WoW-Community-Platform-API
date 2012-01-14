@@ -15,8 +15,11 @@ namespace WowCharacterInfo
         {
             var character = CharacterData.Get("eu", "Черный Шрам", "Киллшот", CharacterFields.All, Locale.ru_RU);
 
-            if (character == null || character.Status == "nok")
-                MessageBox.Show(character.Reason);
+            if (character == null)
+            {
+                MessageBox.Show("Character request failed!");
+                return;
+            }
 
             propertyGrid1.SelectedObject = character;
         }

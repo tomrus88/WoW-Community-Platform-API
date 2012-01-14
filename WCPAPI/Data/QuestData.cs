@@ -10,17 +10,17 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "title")]
-        public string Title;
+        public string Title { get; private set; }
         [DataMember(Name = "reqLevel")]
-        public int ReqLevel;
+        public int ReqLevel { get; private set; }
         [DataMember(Name = "suggestedPartyMembers")]
-        public int SuggestedPartyMembers;
+        public int SuggestedPartyMembers { get; private set; }
         [DataMember(Name = "category")]
-        public string Category;
+        public string Category { get; private set; }
         [DataMember(Name = "level")]
-        public int Level;
+        public int Level { get; private set; }
         #pragma warning restore 0649
 
         const string baseURL = "http://{0}.battle.net/api/wow/quest/{1}";

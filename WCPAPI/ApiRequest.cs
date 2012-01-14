@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net;
 using System.Runtime.Serialization.Json;
-using System.Web.Caching;
 using System.Web;
+using System.Web.Caching;
 
 namespace WCPAPI
 {
@@ -58,7 +58,7 @@ namespace WCPAPI
                             //return (T)DataCache.Get(key);
                         }
 
-                        var serializer = new DataContractJsonSerializer(typeof(T));
+                        var serializer = new DataContractJsonSerializer(typeof(ApiError));
                         return (T)serializer.ReadObject(resp.GetResponseStream());
                     }
                 }

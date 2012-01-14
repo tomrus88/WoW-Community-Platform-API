@@ -33,6 +33,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WowArmory", "WowArmory\", "
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowArenaLadder", "WowArenaLadder\WowArenaLadder.csproj", "{A2EE56CF-E47F-4515-BDA1-137EA43289FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,16 @@ Global
 		{011FCB1F-E036-41DB-AB61-1B2A6E44F827}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{011FCB1F-E036-41DB-AB61-1B2A6E44F827}.Release|x86.ActiveCfg = Debug|Any CPU
 		{011FCB1F-E036-41DB-AB61-1B2A6E44F827}.Release|x86.Build.0 = Debug|Any CPU
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Debug|x86.ActiveCfg = Debug|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Debug|x86.Build.0 = Debug|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Release|Any CPU.ActiveCfg = Release|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Release|Mixed Platforms.Build.0 = Release|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Release|x86.ActiveCfg = Release|x86
+		{A2EE56CF-E47F-4515-BDA1-137EA43289FA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "races")]
-        public Race[] Races;
+        public Race[] Races { get; private set; }
         #pragma warning restore 0649
 
         const string baseURL = "http://{0}.battle.net/api/wow/data/character/races";
@@ -35,12 +35,12 @@ namespace WCPAPI
     public class Race
     {
         [DataMember(Name = "id")]
-        public int Id;
+        public int Id { get; private set; }
         [DataMember(Name = "mask")]
-        public int Mask;
+        public int Mask { get; private set; }
         [DataMember(Name = "side")]
-        public string Side;
+        public string Side { get; private set; }
         [DataMember(Name = "name")]
-        public string Name;
+        public string Name { get; private set; }
     }
 }
