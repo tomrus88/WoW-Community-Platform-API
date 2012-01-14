@@ -6,16 +6,16 @@ using System.Runtime.Serialization;
 namespace WCPAPI
 {
     [DataContract]
-    public class RacesData
+    public class GuildPerksData
     {
         #pragma warning disable 0649
-        [DataMember(Name = "races")]
-        public Race[] Races;
+        [DataMember(Name = "perks")]
+        public GuildPerk[] Perks;
         #pragma warning restore 0649
 
-        const string baseURL = "http://{0}.battle.net/api/wow/data/character/races";
+        const string baseURL = "http://{0}.battle.net/api/wow/data/guild/perks";
 
-        public static RacesData Get(string region, Locale? locale = null)
+        public static GuildPerksData Get(string region, Locale? locale = null)
         {
             string url = String.Format(baseURL, region);
 
@@ -27,20 +27,16 @@ namespace WCPAPI
             if (parameters.Count != 0)
                 url += "?" + string.Join("&", parameters.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
 
-            return ApiRequest.Get<RacesData>(url);
+            return ApiRequest.Get<GuildPerksData>(url);
         }
     }
 
     [DataContract]
-    public class Race
+    public class GuildPerk
     {
-        [DataMember(Name = "id")]
-        public int Id;
-        [DataMember(Name = "mask")]
-        public int Mask;
-        [DataMember(Name = "side")]
-        public string Side;
-        [DataMember(Name = "name")]
-        public string Name;
+        [DataMember(Name = "guildLevel")]
+        public int GuildLevel;
+        [DataMember(Name = "spell")]
+        public SpellInfo Spell;
     }
 }

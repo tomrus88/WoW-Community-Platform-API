@@ -13,14 +13,17 @@ namespace WowDataInfo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var item = ItemData.Get("eu", 70534);
-            propertyGrid1.SelectedObject = item;
+            //var item = ItemData.Get("eu", 70534);
+            //propertyGrid1.SelectedObject = item;
 
-            var races = RacesData.Get("eu");
+            //var races = RacesData.Get("eu");
 
-            var classes = ClassesData.Get("eu");
+            //var classes = ClassesData.Get("eu");
 
-            // http://eu.battle.net/api/wow/data/guild/rewards
+            var grewards = GuildRewardsData.Get("eu");
+
+            var gperks = GuildPerksData.Get("eu");
+
             // http://eu.battle.net/api/wow/data/guild/perks
         }
     }

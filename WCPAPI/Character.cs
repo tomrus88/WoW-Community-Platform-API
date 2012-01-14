@@ -123,12 +123,13 @@ namespace WCPAPI
         // TODO: pvp
         #pragma warning restore 0649
 
+        private readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+
         public DateTime LastModified
         {
             get
             {
-                DateTime origin = new DateTime(1970, 1, 1, 0, 0, 0, 0);
-                return origin.AddSeconds(m_lastModified / 1000.0f);
+                return baseTime.AddSeconds(m_lastModified / 1000.0f);
             }
         }
     }
