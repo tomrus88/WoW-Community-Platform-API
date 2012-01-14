@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.Web.Caching;
+using System.Web;
 
 namespace WCPAPI
 {
@@ -34,7 +36,9 @@ namespace WCPAPI
                 using (HttpWebResponse webResponse = webRequest.GetResponse() as HttpWebResponse)
                 {
                     var serializer = new DataContractJsonSerializer(typeof(T));
-                    return (T)serializer.ReadObject(webResponse.GetResponseStream());
+                    T result = (T)serializer.ReadObject(webResponse.GetResponseStream());
+                    //DataCache.Add(result.GetHashCode().ToString(), result);
+                    return result;
                 }
             }
             catch (WebException web)
@@ -49,7 +53,10 @@ namespace WCPAPI
                             return null;
 
                         if (resp.StatusCode == HttpStatusCode.NotModified)
-                            return null;
+                        {
+                            return null; // grab from the cache?
+                            //return (T)DataCache.Get(key);
+                        }
 
                         var serializer = new DataContractJsonSerializer(typeof(T));
                         return (T)serializer.ReadObject(resp.GetResponseStream());
@@ -62,6 +69,19 @@ namespace WCPAPI
             {
                 return null;
             }
+        }
+    }
+
+    public static class DataCache
+    {
+        public static object Get(string key)
+        {
+            return HttpRuntime.Cache.Get(key);
+        }
+
+        public static void Add(string key, object value)
+        {
+            HttpRuntime.Cache.Add(key, value, null, DateTime.Now.AddDays(1), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
         }
     }
 }

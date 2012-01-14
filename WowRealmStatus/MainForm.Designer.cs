@@ -76,7 +76,7 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Slug";
+            this.columnHeader6.Text = "Battlegroup";
             this.columnHeader6.Width = 150;
             // 
             // columnHeader1
@@ -137,7 +137,7 @@
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
@@ -149,7 +149,7 @@
             this.kRToolStripMenuItem,
             this.tWToolStripMenuItem});
             this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.regionToolStripMenuItem.Text = "Region";
             // 
             // eUToolStripMenuItem
@@ -190,7 +190,7 @@
             this.tWToolStripMenuItem.Text = "TW";
             this.tWToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,7 +198,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "WowRealmStatus";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

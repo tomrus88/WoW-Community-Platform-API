@@ -35,6 +35,8 @@ namespace WCPAPI
         public string Name { get; private set; }
         [DataMember(Name = "slug")]
         public string Slug { get; private set; }
+        [DataMember(Name = "battlegroup")]
+        public string Battlegroup { get; private set; }
         #pragma warning restore 0649
 
         public RealmType Type
@@ -58,7 +60,7 @@ namespace WCPAPI
             return new string[]
             {
                 Name,
-                Slug,
+                Battlegroup,
                 Type.ToString(),
                 Population.ToString(),
                 Queue.ToString(),

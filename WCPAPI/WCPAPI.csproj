@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,8 @@
     <Compile Include="BonusStat.cs" />
     <Compile Include="CharacterAppearance.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Data\RecipeData.cs" />
+    <Compile Include="Data\QuestData.cs" />
     <Compile Include="Data\GuildPerksData.cs" />
     <Compile Include="GuildEmblem.cs" />
     <Compile Include="Data\GuildRewardsData.cs" />

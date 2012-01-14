@@ -20,11 +20,21 @@ namespace WowDataInfo
 
             //var classes = ClassesData.Get("eu");
 
-            var grewards = GuildRewardsData.Get("eu");
+            //var grewards = GuildRewardsData.Get("eu");
 
-            var gperks = GuildPerksData.Get("eu");
+            //var gperks = GuildPerksData.Get("eu");
+
+            //var quest = QuestData.Get("eu", 25, Locale.ru_RU);
+
+            var recipe = RecipeData.Get("eu", 2149, Locale.ru_RU);
 
             // http://eu.battle.net/api/wow/data/guild/perks
+            // http://us.battle.net/api/wow/data/character/achievements
+            // http://us.battle.net/api/wow/data/guild/achievements
+            // http://us.battle.net/api/wow/data/battlegroups/
+            // http://us.battle.net/api/wow/pvp/arena/Bloodlust/2v2
+            // http://us.battle.net/api/wow/pvp/arena/Bloodlust/2v2?size=5
+            // http://us.battle.net/api/wow/data/item/classes
         }
     }
 }

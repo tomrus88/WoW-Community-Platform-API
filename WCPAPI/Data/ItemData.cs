@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Net;
-using System.Runtime.Serialization.Json;
-using System.Text;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WCPAPI
 {
@@ -9,27 +8,19 @@ namespace WCPAPI
     {
         const string baseURL = "http://{0}.battle.net/api/wow/item/{1}";
 
-        public static Item Get(string region, int id)
+        public static Item Get(string region, int id, Locale? locale = null)
         {
-            using (var client = new WebClient())
-            {
-                client.Encoding = Encoding.UTF8;
+            string url = String.Format(baseURL, region, id);
 
-                try
-                {
-                    var serializer = new DataContractJsonSerializer(typeof(Item));
-                    return (Item)serializer.ReadObject(client.OpenRead(new Uri(String.Format(baseURL, region, id))));
-                }
-                catch (WebException web)
-                {
-                    var serializer = new DataContractJsonSerializer(typeof(Item));
-                    return (Item)serializer.ReadObject(web.Response.GetResponseStream());
-                }
-                catch
-                {
-                    return null;
-                }
-            }
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+
+            if (locale.HasValue)
+                parameters.Add("locale", locale.Value.ToString());
+
+            if (parameters.Count != 0)
+                url += "?" + string.Join("&", parameters.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
+
+            return ApiRequest.Get<Item>(url);
         }
     }
 }
