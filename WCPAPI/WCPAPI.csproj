@@ -46,8 +46,10 @@
     <Compile Include="BonusStat.cs" />
     <Compile Include="CharacterAppearance.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="GuildEmblem.cs" />
     <Compile Include="GuildRewards.cs" />
     <Compile Include="Data\GuildRewardsData.cs" />
+    <Compile Include="TooltipParams.cs" />
     <Compile Include="WowClasses.cs" />
     <Compile Include="Data\CharacterData.cs" />
     <Compile Include="CharacterGuild.cs" />

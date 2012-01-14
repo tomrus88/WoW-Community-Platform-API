@@ -14,13 +14,13 @@ namespace WCPAPI
     [DataContract]
     public class GuildReward
     {
-        [DataMember(Name = "id")]
-        public int Id;
-        [DataMember(Name = "mask")]
-        public int Mask;
-        [DataMember(Name = "powerType")]
-        public string PowerType;
-        [DataMember(Name = "name")]
-        public string Name;
+        //[DataMember(Name = "id")]
+        //public int Id;
+        //[DataMember(Name = "mask")]
+        //public int Mask;
+        //[DataMember(Name = "powerType")]
+        //public string PowerType;
+        //[DataMember(Name = "name")]
+        //public string Name;
     }
 }

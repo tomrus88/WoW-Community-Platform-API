@@ -52,7 +52,7 @@ namespace WCPAPI
                             return null;
 
                         var serializer = new DataContractJsonSerializer(typeof(T));
-                        return (T)serializer.ReadObject(web.Response.GetResponseStream());
+                        return (T)serializer.ReadObject(resp.GetResponseStream());
                     }
                 }
 

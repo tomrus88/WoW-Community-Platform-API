@@ -42,7 +42,7 @@ namespace WCPAPI
         public int AchievementPoints { get; private set; }
 
         [DataMember(Name = "emblem")]
-        public Emblem Emblem { get; private set; }
+        public GuildEmblem Emblem { get; private set; }
 
         [DataMember(Name = "achievements", IsRequired=false)]
         public Achievements Achievements { get; private set; }
