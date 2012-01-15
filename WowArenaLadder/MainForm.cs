@@ -57,7 +57,6 @@ namespace WowArenaLadder
             {
                 var item = battlegroupToolStripMenuItem.DropDownItems.Add(bg.Name) as ToolStripMenuItem;
                 item.Tag = bg.Slug;
-                item.CheckOnClick = true;
                 item.Click += new EventHandler(bgToolStripItem_Click);
             }
 
@@ -71,7 +70,10 @@ namespace WowArenaLadder
                 if (bg != sender)
                     bg.Checked = false;
                 else
+                {
+                    bg.Checked = true;
                     m_battlegroup = (string)bg.Tag;
+                }
             }
 
             QueryData();
@@ -109,7 +111,10 @@ namespace WowArenaLadder
                 if (teamsize != sender)
                     teamsize.Checked = false;
                 else
+                {
+                    teamsize.Checked = true;
                     m_size = teamsize.Text;
+                }
             }
 
             QueryData();
@@ -206,7 +211,10 @@ namespace WowArenaLadder
                 if (region != sender)
                     region.Checked = false;
                 else
+                {
+                    region.Checked = true;
                     m_client.Region = (string)region.Tag;
+                }
             }
 
             QueryBGs();

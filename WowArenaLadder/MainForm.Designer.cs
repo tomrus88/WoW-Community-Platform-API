@@ -102,26 +102,23 @@
             // v2ToolStripMenuItem
             // 
             this.v2ToolStripMenuItem.Checked = true;
-            this.v2ToolStripMenuItem.CheckOnClick = true;
             this.v2ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.v2ToolStripMenuItem.Name = "v2ToolStripMenuItem";
-            this.v2ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.v2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.v2ToolStripMenuItem.Text = "2v2";
             this.v2ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
             // v3ToolStripMenuItem
             // 
-            this.v3ToolStripMenuItem.CheckOnClick = true;
             this.v3ToolStripMenuItem.Name = "v3ToolStripMenuItem";
-            this.v3ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.v3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.v3ToolStripMenuItem.Text = "3v3";
             this.v3ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
             // v5ToolStripMenuItem
             // 
-            this.v5ToolStripMenuItem.CheckOnClick = true;
             this.v5ToolStripMenuItem.Name = "v5ToolStripMenuItem";
-            this.v5ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.v5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.v5ToolStripMenuItem.Text = "5v5";
             this.v5ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
@@ -145,7 +142,6 @@
             // eUToolStripMenuItem
             // 
             this.eUToolStripMenuItem.Checked = true;
-            this.eUToolStripMenuItem.CheckOnClick = true;
             this.eUToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.eUToolStripMenuItem.Name = "eUToolStripMenuItem";
             this.eUToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
@@ -155,7 +151,6 @@
             // 
             // uSToolStripMenuItem
             // 
-            this.uSToolStripMenuItem.CheckOnClick = true;
             this.uSToolStripMenuItem.Name = "uSToolStripMenuItem";
             this.uSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uSToolStripMenuItem.Tag = "us";
@@ -164,7 +159,6 @@
             // 
             // tWToolStripMenuItem
             // 
-            this.tWToolStripMenuItem.CheckOnClick = true;
             this.tWToolStripMenuItem.Name = "tWToolStripMenuItem";
             this.tWToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tWToolStripMenuItem.Tag = "tw";
@@ -173,7 +167,6 @@
             // 
             // kRToolStripMenuItem
             // 
-            this.kRToolStripMenuItem.CheckOnClick = true;
             this.kRToolStripMenuItem.Name = "kRToolStripMenuItem";
             this.kRToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.kRToolStripMenuItem.Tag = "kr";
