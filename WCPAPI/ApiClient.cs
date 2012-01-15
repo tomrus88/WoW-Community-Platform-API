@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace WCPAPI
 {
@@ -39,6 +40,8 @@ namespace WCPAPI
 
         public ArenaLadder GetArenaLadder(string bg, string size, int count = 0, Locale? locale = null)
         {
+            bg = HttpUtility.UrlEncode(bg);
+
             if (count != 0)
             {
                 var parameters = new Dictionary<string, string> { { "size", count.ToString() } };

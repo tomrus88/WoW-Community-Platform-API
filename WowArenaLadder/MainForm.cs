@@ -40,6 +40,8 @@ namespace WowArenaLadder
 
         private void QueryBGs()
         {
+            battlegroupToolStripMenuItem.DropDownItems.Clear();
+
             var bgs = m_client.GetBattlegroups().BGs;
 
             if (bgs.Length == 0)
@@ -102,11 +104,13 @@ namespace WowArenaLadder
 
         private void teamSizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (ToolStripMenuItem region in teamSizeToolStripMenuItem.DropDownItems)
-                if (region != sender)
-                    region.Checked = false;
-
-            m_size = (sender as ToolStripMenuItem).Text;
+            foreach (ToolStripMenuItem teamsize in teamSizeToolStripMenuItem.DropDownItems)
+            {
+                if (teamsize != sender)
+                    teamsize.Checked = false;
+                else
+                    m_size = teamsize.Text;
+            }
 
             QueryData();
         }
@@ -116,7 +120,10 @@ namespace WowArenaLadder
             var ladder = m_client.GetArenaLadder(m_battlegroup, m_size, 2000);
 
             if (ladder.ArenaTeams == null)
+            {
+                ladderView.Items.Clear();
                 return;
+            }
 
             ladderView.BeginUpdate();
 
@@ -188,8 +195,22 @@ namespace WowArenaLadder
             {
                 var team = item.Tag as ArenaTeam;
 
-                Process.Start(String.Format("http://eu.battle.net/wow/en/arena/{0}/{1}v{1}/{2}/", team.Realm, team.TeamSize, team.Name));
+                Process.Start(String.Format("http://{0}.battle.net/wow/en/arena/{1}/{2}v{2}/{3}/", m_client.Region, team.Realm, team.TeamSize, team.Name));
             }
+        }
+
+        private void regionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem region in regionToolStripMenuItem.DropDownItems)
+            {
+                if (region != sender)
+                    region.Checked = false;
+                else
+                    m_client.Region = (string)region.Tag;
+            }
+
+            QueryBGs();
+            QueryData();
         }
     }
 }

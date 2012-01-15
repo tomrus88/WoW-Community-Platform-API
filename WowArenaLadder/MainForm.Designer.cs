@@ -37,6 +37,11 @@
             this.v3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.v5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.battlegroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ladderView = new WowArenaLadder.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -78,7 +83,8 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.teamSizeToolStripMenuItem,
-            this.battlegroupToolStripMenuItem});
+            this.battlegroupToolStripMenuItem,
+            this.regionToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -90,7 +96,7 @@
             this.v3ToolStripMenuItem,
             this.v5ToolStripMenuItem});
             this.teamSizeToolStripMenuItem.Name = "teamSizeToolStripMenuItem";
-            this.teamSizeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.teamSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.teamSizeToolStripMenuItem.Text = "Team Size";
             // 
             // v2ToolStripMenuItem
@@ -122,8 +128,57 @@
             // battlegroupToolStripMenuItem
             // 
             this.battlegroupToolStripMenuItem.Name = "battlegroupToolStripMenuItem";
-            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.battlegroupToolStripMenuItem.Text = "Battlegroup";
+            // 
+            // regionToolStripMenuItem
+            // 
+            this.regionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eUToolStripMenuItem,
+            this.uSToolStripMenuItem,
+            this.tWToolStripMenuItem,
+            this.kRToolStripMenuItem});
+            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.regionToolStripMenuItem.Text = "Region";
+            // 
+            // eUToolStripMenuItem
+            // 
+            this.eUToolStripMenuItem.Checked = true;
+            this.eUToolStripMenuItem.CheckOnClick = true;
+            this.eUToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.eUToolStripMenuItem.Name = "eUToolStripMenuItem";
+            this.eUToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eUToolStripMenuItem.Tag = "eu";
+            this.eUToolStripMenuItem.Text = "EU";
+            this.eUToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            // 
+            // uSToolStripMenuItem
+            // 
+            this.uSToolStripMenuItem.CheckOnClick = true;
+            this.uSToolStripMenuItem.Name = "uSToolStripMenuItem";
+            this.uSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uSToolStripMenuItem.Tag = "us";
+            this.uSToolStripMenuItem.Text = "US";
+            this.uSToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            // 
+            // tWToolStripMenuItem
+            // 
+            this.tWToolStripMenuItem.CheckOnClick = true;
+            this.tWToolStripMenuItem.Name = "tWToolStripMenuItem";
+            this.tWToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tWToolStripMenuItem.Tag = "tw";
+            this.tWToolStripMenuItem.Text = "TW";
+            this.tWToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            // 
+            // kRToolStripMenuItem
+            // 
+            this.kRToolStripMenuItem.CheckOnClick = true;
+            this.kRToolStripMenuItem.Name = "kRToolStripMenuItem";
+            this.kRToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kRToolStripMenuItem.Tag = "kr";
+            this.kRToolStripMenuItem.Text = "KR";
+            this.kRToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
             // ladderView
             // 
@@ -222,6 +277,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ToolStripMenuItem battlegroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eUToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem uSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tWToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kRToolStripMenuItem;
     }
 }
 
