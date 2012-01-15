@@ -21,9 +21,9 @@ namespace WCPAPI
         pt_BR
     }
 
-    public static class ApiRequest
+    public class ApiRequest
     {
-        public static T Get<T>(string url, DateTime? ifModifiedSince = null) where T : class
+        public T Get<T>(string url, DateTime? ifModifiedSince = null) where T : class
         {
             HttpWebRequest webRequest = HttpWebRequest.Create(url) as HttpWebRequest;
             webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
@@ -69,19 +69,6 @@ namespace WCPAPI
             {
                 return null;
             }
-        }
-    }
-
-    public static class DataCache
-    {
-        public static object Get(string key)
-        {
-            return HttpRuntime.Cache.Get(key);
-        }
-
-        public static void Add(string key, object value)
-        {
-            HttpRuntime.Cache.Add(key, value, null, DateTime.Now.AddDays(1), Cache.NoSlidingExpiration, CacheItemPriority.Normal, null);
         }
     }
 }

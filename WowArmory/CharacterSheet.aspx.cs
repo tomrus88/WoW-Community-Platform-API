@@ -19,7 +19,7 @@ public partial class character_sheet : System.Web.UI.Page
             return;
         }
 
-        var character = CharacterData.Get("eu", realm, name, CharacterFields.Progression);
+        var character = new ApiClient("eu").GetCharacter(realm, name, CharacterFields.Progression);
 
         Response.Write("<table style=\"width:100%;\">");
 

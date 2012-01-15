@@ -44,6 +44,7 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.battlegroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +77,8 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teamSizeToolStripMenuItem});
+            this.teamSizeToolStripMenuItem,
+            this.battlegroupToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -97,7 +99,7 @@
             this.v2ToolStripMenuItem.CheckOnClick = true;
             this.v2ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.v2ToolStripMenuItem.Name = "v2ToolStripMenuItem";
-            this.v2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.v2ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.v2ToolStripMenuItem.Text = "2v2";
             this.v2ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
@@ -105,7 +107,7 @@
             // 
             this.v3ToolStripMenuItem.CheckOnClick = true;
             this.v3ToolStripMenuItem.Name = "v3ToolStripMenuItem";
-            this.v3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.v3ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.v3ToolStripMenuItem.Text = "3v3";
             this.v3ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
@@ -113,7 +115,7 @@
             // 
             this.v5ToolStripMenuItem.CheckOnClick = true;
             this.v5ToolStripMenuItem.Name = "v5ToolStripMenuItem";
-            this.v5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.v5ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.v5ToolStripMenuItem.Text = "5v5";
             this.v5ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
@@ -171,6 +173,12 @@
             // 
             this.columnHeader7.Text = "Rating";
             // 
+            // battlegroupToolStripMenuItem
+            // 
+            this.battlegroupToolStripMenuItem.Name = "battlegroupToolStripMenuItem";
+            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.battlegroupToolStripMenuItem.Text = "Battlegroup";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,7 +188,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "WoW Arena Ladder";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -207,6 +215,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ToolStripMenuItem battlegroupToolStripMenuItem;
     }
 }
 

@@ -8,7 +8,7 @@ namespace WowRealmStatus
     public partial class MainForm : Form
     {
         private ListViewColumnSorter columnSorter;
-        private string m_region;
+        private ApiClient m_client;
 
         public MainForm()
         {
@@ -23,23 +23,23 @@ namespace WowRealmStatus
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            m_region = "eu";
+            m_client = new ApiClient("eu");
 
             UpdateRealmStatus();
         }
 
         private void UpdateRealmStatus()
         {
-            Task<RealmData>.Factory.StartNew(() => RealmData.Get(m_region)).ContinueWith(task => FillListView(task.Result));
+            Task<RealmStatus>.Factory.StartNew(() => m_client.GetRealmStatus()).ContinueWith(task => FillListView(task.Result));
         }
 
-        delegate void AddListViewItem(RealmData r);
+        delegate void AddListViewItem(RealmStatus r);
 
-        private void FillListView(RealmData status)
+        private void FillListView(RealmStatus status)
         {
             if (status == null)
             {
-                MessageBox.Show(String.Format("Failed to get realm status for region {0}", m_region));
+                MessageBox.Show(String.Format("Failed to get realm status for region {0}", m_client.Region));
                 return;
             }
 
@@ -83,7 +83,7 @@ namespace WowRealmStatus
                 if (region != sender)
                     region.Checked = false;
                 else
-                    m_region = (string)region.Tag;
+                    m_client.Region = (string)region.Tag;
             }
 
             UpdateRealmStatus();

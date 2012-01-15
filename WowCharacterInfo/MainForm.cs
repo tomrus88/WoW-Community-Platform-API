@@ -13,7 +13,7 @@ namespace WowCharacterInfo
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var character = CharacterData.Get("eu", "Черный Шрам", "Киллшот", CharacterFields.All, Locale.ru_RU);
+            var character = new ApiClient("eu").GetCharacter("Черный Шрам", "Киллшот", CharacterFields.All, Locale.ru_RU);
 
             if (character == null)
             {

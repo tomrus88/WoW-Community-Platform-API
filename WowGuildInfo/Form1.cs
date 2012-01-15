@@ -13,7 +13,7 @@ namespace WowGuildInfo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var guild = GuildData.Get("eu", "Черный Шрам", "А Нуо", GuildFields.All);
+            var guild = new ApiClient("eu").GetGuild("Черный Шрам", "А Нуо", GuildFields.All);
 
             MessageBox.Show(guild.Name);
         }

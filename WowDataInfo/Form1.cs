@@ -13,22 +13,23 @@ namespace WowDataInfo
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //var item = ItemData.Get("eu", 70534);
-            //propertyGrid1.SelectedObject = item;
+            var client = new ApiClient("eu");
+            var item = client.GetItem(70534);
+            propertyGrid1.SelectedObject = item;
 
-            //var races = RacesData.Get("eu");
+            var races = client.GetRaces();
 
-            //var classes = ClassesData.Get("eu");
+            var classes = client.GetClasses();
 
-            //var grewards = GuildRewardsData.Get("eu");
+            var grewards = client.GetGuildRewards();
 
-            //var gperks = GuildPerksData.Get("eu");
+            var gperks = client.GetGuildPerks();
 
-            //var quest = QuestData.Get("eu", 25, Locale.ru_RU);
+            var quest = client.GetQuest(25, Locale.ru_RU);
 
-            //var recipe = RecipeData.Get("eu", 2149, Locale.ru_RU);
+            var recipe = client.GetRecipe(2149, Locale.ru_RU);
 
-            var arena = ArenaLadderData.Get("eu", "шквал", "2v2");
+            var arena = client.GetArenaLadder("шквал", "2v2");
 
             // http://eu.battle.net/api/wow/data/guild/perks
             // http://us.battle.net/api/wow/data/character/achievements

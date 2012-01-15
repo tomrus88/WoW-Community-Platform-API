@@ -8,6 +8,9 @@ namespace WowArenaLadder
     {
         private ListViewColumnSorter columnSorter;
         private ArenaLadder m_ladder;
+        private ApiClient m_client;
+        private string m_battlegroup;
+        private string m_size = "2v2";
 
         public Form1()
         {
@@ -26,7 +29,49 @@ namespace WowArenaLadder
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            QueryData("2v2");
+            m_client = new ApiClient("eu");
+
+            QueryBGs();
+            QueryData();
+        }
+
+        private void QueryBGs()
+        {
+            var bgs = m_client.GetBattlegroups().BGs;
+
+            if (bgs.Length == 0)
+            {
+                MessageBox.Show("Can't get list of battlegroups, closing...");
+                Application.Exit();
+                return;
+            }
+
+            m_battlegroup = bgs[0].Slug;
+
+            foreach (var bg in bgs)
+            {
+                var item = battlegroupToolStripMenuItem.DropDownItems.Add(bg.Name) as ToolStripMenuItem;
+                item.Tag = bg.Slug;
+                item.CheckOnClick = true;
+                item.Click += new EventHandler(item_Click);
+            }
+
+            (battlegroupToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem).Checked = true;
+        }
+
+        void item_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+
+            foreach (ToolStripMenuItem bg in battlegroupToolStripMenuItem.DropDownItems)
+            {
+                if (bg != sender)
+                    bg.Checked = false;
+                else
+                    m_battlegroup = (string)bg.Tag;
+            }
+
+            QueryData();
         }
 
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
@@ -61,14 +106,14 @@ namespace WowArenaLadder
                 if (region != sender)
                     region.Checked = false;
 
-            var size = (sender as ToolStripMenuItem).Text;
+            m_size = (sender as ToolStripMenuItem).Text;
 
-            QueryData(size);
+            QueryData();
         }
 
-        private void QueryData(string size)
+        private void QueryData()
         {
-            m_ladder = ArenaLadderData.Get("eu", "шквал", size, 2000);
+            m_ladder = m_client.GetArenaLadder(m_battlegroup, m_size, 2000);
 
             int i = 0;
             foreach (var team in m_ladder)
