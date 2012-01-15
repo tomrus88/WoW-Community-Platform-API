@@ -84,7 +84,7 @@ namespace WowArenaLadder
 
         private ListViewItem CreateListViewItemByIndex(int index)
         {
-            var team = m_ladder[index];
+            var team = m_ladder.ArenaTeam[index];
 
             return new ListViewItem(new string[]
                 {
@@ -115,8 +115,11 @@ namespace WowArenaLadder
         {
             m_ladder = m_client.GetArenaLadder(m_battlegroup, m_size, 2000);
 
+            if (m_ladder.ArenaTeam == null)
+                return;
+
             int i = 0;
-            foreach (var team in m_ladder)
+            foreach (var team in m_ladder.ArenaTeam)
                 listView1.Items.Add(CreateListViewItemByIndex(i++));
         }
     }
