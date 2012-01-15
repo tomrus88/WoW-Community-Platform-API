@@ -121,12 +121,12 @@ namespace WCPAPI
 
         public GuildPerksData GetGuildPerks(Locale? locale = null)
         {
-            return Get<GuildPerksData>("data/guild/perks");
+            return Get<GuildPerksData>("data/guild/perks", null, locale);
         }
 
         public ClassesData GetClasses(Locale? locale = null)
         {
-            return Get<ClassesData>("data/character/classes");
+            return Get<ClassesData>("data/character/classes", null, locale);
         }
 
         public RecipeData GetRecipe(int id, Locale? locale = null)

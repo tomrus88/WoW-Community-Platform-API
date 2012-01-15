@@ -17,7 +17,7 @@ namespace WowArenaLadder
             InitializeComponent();
 
             columnSorter = new ListViewColumnSorter();
-            listView1.ListViewItemSorter = columnSorter;
+            ladderView.ListViewItemSorter = columnSorter;
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
         }
@@ -53,15 +53,15 @@ namespace WowArenaLadder
                 var item = battlegroupToolStripMenuItem.DropDownItems.Add(bg.Name) as ToolStripMenuItem;
                 item.Tag = bg.Slug;
                 item.CheckOnClick = true;
-                item.Click += new EventHandler(item_Click);
+                item.Click += new EventHandler(bgToolStripItem_Click);
             }
 
             (battlegroupToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem).Checked = true;
         }
 
-        void item_Click(object sender, EventArgs e)
+        void bgToolStripItem_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
+            ladderView.Items.Clear();
 
             foreach (ToolStripMenuItem bg in battlegroupToolStripMenuItem.DropDownItems)
             {
@@ -77,9 +77,9 @@ namespace WowArenaLadder
         private void listView1_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             columnSorter.SortColumn = e.Column;
-            listView1.Sorting = listView1.Sorting == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
-            columnSorter.Order = listView1.Sorting;
-            listView1.Sort();
+            ladderView.Sorting = ladderView.Sorting == SortOrder.Ascending ? SortOrder.Descending : SortOrder.Ascending;
+            columnSorter.Order = ladderView.Sorting;
+            ladderView.Sort();
         }
 
         private ListViewItem CreateListViewItemByIndex(int index)
@@ -100,7 +100,7 @@ namespace WowArenaLadder
 
         private void teamSizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listView1.Items.Clear();
+            ladderView.Items.Clear();
 
             foreach (ToolStripMenuItem region in teamSizeToolStripMenuItem.DropDownItems)
                 if (region != sender)
@@ -120,7 +120,7 @@ namespace WowArenaLadder
 
             int i = 0;
             foreach (var team in m_ladder.ArenaTeam)
-                listView1.Items.Add(CreateListViewItemByIndex(i++));
+                ladderView.Items.Add(CreateListViewItemByIndex(i++));
         }
     }
 }

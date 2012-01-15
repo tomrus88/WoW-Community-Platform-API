@@ -36,7 +36,7 @@
             this.v2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.v3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.v5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView1 = new WowArenaLadder.ListViewEx();
+            this.ladderView = new WowArenaLadder.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -121,10 +121,10 @@
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ladderView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ladderView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -132,16 +132,16 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(12, 27);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(654, 494);
-            this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
+            this.ladderView.FullRowSelect = true;
+            this.ladderView.GridLines = true;
+            this.ladderView.Location = new System.Drawing.Point(12, 27);
+            this.ladderView.Name = "listView1";
+            this.ladderView.Size = new System.Drawing.Size(654, 494);
+            this.ladderView.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.ladderView.TabIndex = 0;
+            this.ladderView.UseCompatibleStateImageBehavior = false;
+            this.ladderView.View = System.Windows.Forms.View.Details;
+            this.ladderView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
             // 
             // columnHeader1
             // 
@@ -184,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 533);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ladderView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -199,7 +199,7 @@
 
         #endregion
 
-        private ListViewEx listView1;
+        private ListViewEx ladderView;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
