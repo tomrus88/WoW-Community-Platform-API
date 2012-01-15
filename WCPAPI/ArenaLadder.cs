@@ -7,7 +7,7 @@ namespace WCPAPI
     {
         #pragma warning disable 0649
         [DataMember(Name = "arenateam")]
-        public ArenaTeam[] ArenaTeam { get; private set; }
+        public ArenaTeam[] ArenaTeams { get; private set; }
         #pragma warning restore 0649
     }
 }

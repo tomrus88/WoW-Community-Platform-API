@@ -88,6 +88,36 @@
       <Name>WCPAPI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_deathknight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_druid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_hunter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_mage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_paladin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_priest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_rogue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_shaman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_warlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\classes\classes_warrior.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -36,6 +36,7 @@
             this.v2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.v3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.v5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.battlegroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ladderView = new WowArenaLadder.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -44,7 +45,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.battlegroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +90,7 @@
             this.v3ToolStripMenuItem,
             this.v5ToolStripMenuItem});
             this.teamSizeToolStripMenuItem.Name = "teamSizeToolStripMenuItem";
-            this.teamSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teamSizeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.teamSizeToolStripMenuItem.Text = "Team Size";
             // 
             // v2ToolStripMenuItem
@@ -119,7 +119,13 @@
             this.v5ToolStripMenuItem.Text = "5v5";
             this.v5ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
-            // listView1
+            // battlegroupToolStripMenuItem
+            // 
+            this.battlegroupToolStripMenuItem.Name = "battlegroupToolStripMenuItem";
+            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.battlegroupToolStripMenuItem.Text = "Battlegroup";
+            // 
+            // ladderView
             // 
             this.ladderView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -135,13 +141,19 @@
             this.ladderView.FullRowSelect = true;
             this.ladderView.GridLines = true;
             this.ladderView.Location = new System.Drawing.Point(12, 27);
-            this.ladderView.Name = "listView1";
+            this.ladderView.Name = "ladderView";
+            this.ladderView.OwnerDraw = true;
             this.ladderView.Size = new System.Drawing.Size(654, 494);
             this.ladderView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.ladderView.TabIndex = 0;
             this.ladderView.UseCompatibleStateImageBehavior = false;
             this.ladderView.View = System.Windows.Forms.View.Details;
             this.ladderView.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_ColumnClick);
+            this.ladderView.DrawColumnHeader += new System.Windows.Forms.DrawListViewColumnHeaderEventHandler(this.ladderView_DrawColumnHeader);
+            this.ladderView.DrawSubItem += new System.Windows.Forms.DrawListViewSubItemEventHandler(this.ladderView_DrawSubItem);
+            this.ladderView.SizeChanged += new System.EventHandler(this.ladderView_SizeChanged);
+            this.ladderView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ladderView_MouseDoubleClick);
+            this.ladderView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ladderView_MouseMove);
             // 
             // columnHeader1
             // 
@@ -150,7 +162,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Team";
-            this.columnHeader2.Width = 150;
+            this.columnHeader2.Width = 250;
             // 
             // columnHeader3
             // 
@@ -172,12 +184,6 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Rating";
-            // 
-            // battlegroupToolStripMenuItem
-            // 
-            this.battlegroupToolStripMenuItem.Name = "battlegroupToolStripMenuItem";
-            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.battlegroupToolStripMenuItem.Text = "Battlegroup";
             // 
             // Form1
             // 

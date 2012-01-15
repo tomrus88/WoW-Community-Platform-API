@@ -59,5 +59,75 @@ namespace WowArenaLadder.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap classes_deathknight {
+            get {
+                object obj = ResourceManager.GetObject("classes_deathknight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_druid {
+            get {
+                object obj = ResourceManager.GetObject("classes_druid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_hunter {
+            get {
+                object obj = ResourceManager.GetObject("classes_hunter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_mage {
+            get {
+                object obj = ResourceManager.GetObject("classes_mage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_paladin {
+            get {
+                object obj = ResourceManager.GetObject("classes_paladin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_priest {
+            get {
+                object obj = ResourceManager.GetObject("classes_priest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_rogue {
+            get {
+                object obj = ResourceManager.GetObject("classes_rogue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_shaman {
+            get {
+                object obj = ResourceManager.GetObject("classes_shaman", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_warlock {
+            get {
+                object obj = ResourceManager.GetObject("classes_warlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap classes_warrior {
+            get {
+                object obj = ResourceManager.GetObject("classes_warrior", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
