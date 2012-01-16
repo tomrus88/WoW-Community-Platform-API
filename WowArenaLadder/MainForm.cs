@@ -16,6 +16,9 @@ namespace WowArenaLadder
         private string m_battlegroupName;
         private string m_size = "2v2";
         private FilterForm m_filterForm = new FilterForm();
+        private ContextMenuStrip m_charMenu = new ContextMenuStrip();
+        private SearchTeamForm m_searchForm = new SearchTeamForm();
+
         public ArenaLadder Ladder { get; private set; }
 
         public MainForm()
@@ -49,8 +52,7 @@ namespace WowArenaLadder
 
             if (bgs.Length == 0)
             {
-                MessageBox.Show("Can't get list of battlegroups, closing...");
-                Application.Exit();
+                MessageBox.Show("Can't get list of battlegroups!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -252,6 +254,73 @@ namespace WowArenaLadder
             ladderView.EndUpdate();
 
             Text = String.Format("WoW Arena Ladder - {0}-{1}: {2} of {3} teams displayed", m_battlegroupName, m_client.Region.ToUpper(), ladderView.Items.Count, Ladder.ArenaTeams.Length);
+        }
+
+        private void ladderView_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ListViewHitTestInfo hitTestInfo = ladderView.HitTest(e.X, e.Y);
+                if (hitTestInfo.Item != null)
+                {
+                    m_charMenu.Items.Clear();
+                    var team = hitTestInfo.Item.Tag as ArenaTeam;
+                    foreach (var member in team.Members)
+                    {
+                        m_charMenu.Items.Add(member.Character.Name, ImageByClass[member.Character.Class], (o, s) =>
+                        {
+                            Process.Start(String.Format("http://{0}.battle.net/wow/en/character/{1}/{2}/advanced", m_client.Region, member.Character.Realm, member.Character.Name));
+                        });
+                    }
+
+                    m_charMenu.Show(ladderView, e.X, e.Y);
+                }
+            }
+        }
+
+        public void Search(string teamName, string characterName)
+        {
+            if (string.IsNullOrEmpty(teamName) && string.IsNullOrEmpty(characterName))
+                return;
+
+            ListViewItem found = null;
+
+            foreach (ListViewItem item in ladderView.Items)
+            {
+                var team = item.Tag as ArenaTeam;
+
+                if (!string.IsNullOrEmpty(teamName))
+                {
+                    if (team.Name == teamName)
+                    {
+                        found = item;
+                        break;
+                    }
+                }
+                else if (!string.IsNullOrEmpty(characterName))
+                {
+                    if (team.Members.Any(m => m.Character.Name == characterName))
+                    {
+                        found = item;
+                        break;
+                    }
+                }
+            }
+
+            if (found != null)
+            {
+                found.Selected = true;
+                ladderView.EnsureVisible(found.Index);
+            }
+            else
+            {
+                MessageBox.Show("Nothing found!");
+            }
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_searchForm.Show(this);
         }
     }
 }

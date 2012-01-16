@@ -42,6 +42,9 @@
             this.uSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ladderView = new WowArenaLadder.ListViewEx();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,8 +53,6 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +88,8 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.teamSizeToolStripMenuItem,
             this.battlegroupToolStripMenuItem,
-            this.regionToolStripMenuItem});
+            this.regionToolStripMenuItem,
+            this.findToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -99,7 +101,7 @@
             this.v3ToolStripMenuItem,
             this.v5ToolStripMenuItem});
             this.teamSizeToolStripMenuItem.Name = "teamSizeToolStripMenuItem";
-            this.teamSizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.teamSizeToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.teamSizeToolStripMenuItem.Text = "Team Size";
             // 
             // v2ToolStripMenuItem
@@ -128,7 +130,7 @@
             // battlegroupToolStripMenuItem
             // 
             this.battlegroupToolStripMenuItem.Name = "battlegroupToolStripMenuItem";
-            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.battlegroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.battlegroupToolStripMenuItem.Text = "Battlegroup";
             // 
             // regionToolStripMenuItem
@@ -139,7 +141,7 @@
             this.tWToolStripMenuItem,
             this.kRToolStripMenuItem});
             this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.regionToolStripMenuItem.Text = "Region";
             // 
             // eUToolStripMenuItem
@@ -176,6 +178,28 @@
             this.kRToolStripMenuItem.Text = "KR";
             this.kRToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.filterToolStripMenuItem.Text = "Filter";
+            this.filterToolStripMenuItem.Click += new System.EventHandler(this.filterToolStripMenuItem_Click);
+            // 
+            // findToolStripMenuItem
+            // 
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.findToolStripMenuItem.Text = "Find...";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
+            // 
             // ladderView
             // 
             this.ladderView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -192,6 +216,7 @@
             this.ladderView.FullRowSelect = true;
             this.ladderView.GridLines = true;
             this.ladderView.Location = new System.Drawing.Point(12, 27);
+            this.ladderView.MultiSelect = false;
             this.ladderView.Name = "ladderView";
             this.ladderView.OwnerDraw = true;
             this.ladderView.Size = new System.Drawing.Size(654, 494);
@@ -205,6 +230,7 @@
             this.ladderView.SizeChanged += new System.EventHandler(this.ladderView_SizeChanged);
             this.ladderView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ladderView_MouseDoubleClick);
             this.ladderView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ladderView_MouseMove);
+            this.ladderView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ladderView_MouseUp);
             // 
             // columnHeader1
             // 
@@ -236,22 +262,7 @@
             // 
             this.columnHeader7.Text = "Rating";
             // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filterToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // filterToolStripMenuItem
-            // 
-            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
-            this.filterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.filterToolStripMenuItem.Text = "Filter";
-            this.filterToolStripMenuItem.Click += new System.EventHandler(this.filterToolStripMenuItem_Click);
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -259,7 +270,7 @@
             this.Controls.Add(this.ladderView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "WoW Arena Ladder";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -295,6 +306,7 @@
         private System.Windows.Forms.ToolStripMenuItem kRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
     }
 }
 

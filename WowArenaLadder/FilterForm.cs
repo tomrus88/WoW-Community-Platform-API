@@ -30,6 +30,7 @@ namespace WowArenaLadder
 
             e.Cancel = true;
             Hide();
+            Owner.Activate();
         }
 
         public void FillComboBox(ArenaLadder ladder)
