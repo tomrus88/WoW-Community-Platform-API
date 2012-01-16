@@ -8,14 +8,17 @@ using WCPAPI;
 
 namespace WowArenaLadder
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private ListViewColumnSorter columnSorter;
         private ApiClient m_client;
-        private string m_battlegroup;
+        private string m_battlegroupSlug;
+        private string m_battlegroupName;
         private string m_size = "2v2";
+        private FilterForm m_filterForm = new FilterForm();
+        public ArenaLadder Ladder { get; private set; }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -51,7 +54,8 @@ namespace WowArenaLadder
                 return;
             }
 
-            m_battlegroup = bgs[0].Slug;
+            m_battlegroupSlug = bgs[0].Slug;
+            m_battlegroupName = bgs[0].Name;
 
             foreach (var bg in bgs)
             {
@@ -72,7 +76,8 @@ namespace WowArenaLadder
                 else
                 {
                     bg.Checked = true;
-                    m_battlegroup = (string)bg.Tag;
+                    m_battlegroupSlug = (string)bg.Tag;
+                    m_battlegroupName = (string)bg.Text;
                 }
             }
 
@@ -122,11 +127,14 @@ namespace WowArenaLadder
 
         private void QueryData()
         {
-            var ladder = m_client.GetArenaLadder(m_battlegroup, m_size, 2000);
+            Ladder = m_client.GetArenaLadder(m_battlegroupSlug, m_size, 2000);
 
-            if (ladder.ArenaTeams == null)
+            m_filterForm.FillComboBox(Ladder);
+
+            if (Ladder.ArenaTeams == null)
             {
                 ladderView.Items.Clear();
+                Text = String.Format("WoW Arena Ladder - {0}-{1}: 0 of 0 teams displayed", m_battlegroupName, m_client.Region.ToUpper());
                 return;
             }
 
@@ -134,10 +142,12 @@ namespace WowArenaLadder
 
             ladderView.Items.Clear();
 
-            foreach (var team in ladder.ArenaTeams)
+            foreach (var team in Ladder.ArenaTeams)
                 ladderView.Items.Add(CreateListViewItemFromTeam(team));
 
             ladderView.EndUpdate();
+
+            Text = String.Format("WoW Arena Ladder -{0}-{1}: {2} of {3} teams displayed", m_battlegroupName, m_client.Region.ToUpper(), ladderView.Items.Count, Ladder.ArenaTeams.Length);
         }
 
         private void ladderView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -219,6 +229,29 @@ namespace WowArenaLadder
 
             QueryBGs();
             QueryData();
+        }
+
+        private void filterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_filterForm.Show(this);
+        }
+
+        public void ApplyFilter(int minRating, string realm, bool incomplete)
+        {
+            if (Ladder.ArenaTeams == null)
+                return;
+
+            ladderView.BeginUpdate();
+
+            ladderView.Items.Clear();
+
+            foreach (var team in Ladder.ArenaTeams)
+                if (team.Rating >= minRating && (string.IsNullOrEmpty(realm) || team.Realm == realm) && (!incomplete || team.Members.Length >= team.TeamSize))
+                    ladderView.Items.Add(CreateListViewItemFromTeam(team));
+
+            ladderView.EndUpdate();
+
+            Text = String.Format("WoW Arena Ladder - {0}-{1}: {2} of {3} teams displayed", m_battlegroupName, m_client.Region.ToUpper(), ladderView.Items.Count, Ladder.ArenaTeams.Length);
         }
     }
 }

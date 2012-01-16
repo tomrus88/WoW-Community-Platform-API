@@ -1,6 +1,6 @@
 ﻿namespace WowArenaLadder
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(678, 24);
@@ -104,21 +107,21 @@
             this.v2ToolStripMenuItem.Checked = true;
             this.v2ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.v2ToolStripMenuItem.Name = "v2ToolStripMenuItem";
-            this.v2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.v2ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.v2ToolStripMenuItem.Text = "2v2";
             this.v2ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
             // v3ToolStripMenuItem
             // 
             this.v3ToolStripMenuItem.Name = "v3ToolStripMenuItem";
-            this.v3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.v3ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.v3ToolStripMenuItem.Text = "3v3";
             this.v3ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
             // v5ToolStripMenuItem
             // 
             this.v5ToolStripMenuItem.Name = "v5ToolStripMenuItem";
-            this.v5ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.v5ToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.v5ToolStripMenuItem.Text = "5v5";
             this.v5ToolStripMenuItem.Click += new System.EventHandler(this.teamSizeToolStripMenuItem_Click);
             // 
@@ -144,7 +147,7 @@
             this.eUToolStripMenuItem.Checked = true;
             this.eUToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.eUToolStripMenuItem.Name = "eUToolStripMenuItem";
-            this.eUToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.eUToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.eUToolStripMenuItem.Tag = "eu";
             this.eUToolStripMenuItem.Text = "EU";
             this.eUToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
@@ -152,7 +155,7 @@
             // uSToolStripMenuItem
             // 
             this.uSToolStripMenuItem.Name = "uSToolStripMenuItem";
-            this.uSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uSToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.uSToolStripMenuItem.Tag = "us";
             this.uSToolStripMenuItem.Text = "US";
             this.uSToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
@@ -160,7 +163,7 @@
             // tWToolStripMenuItem
             // 
             this.tWToolStripMenuItem.Name = "tWToolStripMenuItem";
-            this.tWToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tWToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.tWToolStripMenuItem.Tag = "tw";
             this.tWToolStripMenuItem.Text = "TW";
             this.tWToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
@@ -168,7 +171,7 @@
             // kRToolStripMenuItem
             // 
             this.kRToolStripMenuItem.Name = "kRToolStripMenuItem";
-            this.kRToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kRToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.kRToolStripMenuItem.Tag = "kr";
             this.kRToolStripMenuItem.Text = "KR";
             this.kRToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
@@ -233,6 +236,21 @@
             // 
             this.columnHeader7.Text = "Rating";
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filterToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filterToolStripMenuItem.Text = "Filter";
+            this.filterToolStripMenuItem.Click += new System.EventHandler(this.filterToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +293,8 @@
         private System.Windows.Forms.ToolStripMenuItem uSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tWToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kRToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
     }
 }
 
