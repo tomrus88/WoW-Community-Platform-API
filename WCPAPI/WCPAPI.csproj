@@ -52,6 +52,7 @@
     <Compile Include="CharacterAppearance.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="ArenaLadder.cs" />
+    <Compile Include="CharacterPvp.cs" />
     <Compile Include="DataCache.cs" />
     <Compile Include="ApiClient.cs" />
     <Compile Include="RecipeData.cs" />

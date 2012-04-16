@@ -114,7 +114,8 @@ namespace WCPAPI
         public CharacterAppearance Appearance { get; private set; }
         [DataMember(Name = "quests", IsRequired = false)]
         public int[] Quests { get; private set; }
-        // TODO: pvp
+        [DataMember(Name = "pvp", IsRequired = false)]
+        public CharacterPvp Pvp { get; private set; }
         #pragma warning restore 0649
 
         private readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);

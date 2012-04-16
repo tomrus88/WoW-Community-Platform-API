@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WCPAPI;
 
@@ -41,35 +42,48 @@ namespace WowArenaLadder
             m_client = new ApiClient("eu");
 
             QueryBGs();
-            QueryData();
         }
 
         private void QueryBGs()
         {
-            battlegroupToolStripMenuItem.DropDownItems.Clear();
-
-            var bgs = m_client.GetBattlegroups().BGs;
-
-            if (bgs.Length == 0)
-            {
-                MessageBox.Show("Can't get list of battlegroups!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            m_battlegroupSlug = bgs[0].Slug;
-            m_battlegroupName = bgs[0].Name;
-
-            foreach (var bg in bgs)
-            {
-                var item = battlegroupToolStripMenuItem.DropDownItems.Add(bg.Name) as ToolStripMenuItem;
-                item.Tag = bg.Slug;
-                item.Click += new EventHandler(bgToolStripItem_Click);
-            }
-
-            (battlegroupToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem).Checked = true;
+            Task<Battlegroups>.Factory.StartNew(() => m_client.GetBattlegroups()).ContinueWith(task => FillMenuItems(task.Result));
         }
 
-        void bgToolStripItem_Click(object sender, EventArgs e)
+        delegate void AddBattlegroups(Battlegroups bgs);
+
+        private void FillMenuItems(Battlegroups bgs)
+        {
+            if (this.InvokeRequired)
+            {
+                Invoke(new AddBattlegroups(FillMenuItems), bgs);
+            }
+            else
+            {
+                battlegroupToolStripMenuItem.DropDownItems.Clear();
+
+                if (bgs.BGs.Length == 0)
+                {
+                    MessageBox.Show("Can't get list of battlegroups!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                m_battlegroupSlug = bgs.BGs[0].Slug;
+                m_battlegroupName = bgs.BGs[0].Name;
+
+                foreach (var bg in bgs.BGs)
+                {
+                    var item = battlegroupToolStripMenuItem.DropDownItems.Add(bg.Name) as ToolStripMenuItem;
+                    item.Tag = bg.Slug;
+                    item.Click += new EventHandler(bgToolStripItem_Click);
+                }
+
+                (battlegroupToolStripMenuItem.DropDownItems[0] as ToolStripMenuItem).Checked = true;
+            }
+
+            QueryData();
+        }
+
+        private void bgToolStripItem_Click(object sender, EventArgs e)
         {
             foreach (ToolStripMenuItem bg in battlegroupToolStripMenuItem.DropDownItems)
             {
@@ -129,27 +143,76 @@ namespace WowArenaLadder
 
         private void QueryData()
         {
-            Ladder = m_client.GetArenaLadder(m_battlegroupSlug, m_size, 2000);
+            Task<ArenaLadder>.Factory.StartNew(() => m_client.GetArenaLadder(m_battlegroupSlug, m_size, 2000)).ContinueWith(task => FillListView(task.Result));
+        }
 
-            m_filterForm.FillComboBox(Ladder);
+        delegate void AddListViewItems(ArenaLadder ladder);
 
-            if (Ladder.ArenaTeams == null)
+        private void FillListView(ArenaLadder ladder)
+        {
+            if (ladderView.InvokeRequired)
             {
-                ladderView.Items.Clear();
-                Text = String.Format("WoW Arena Ladder - {0}-{1}: 0 of 0 teams displayed", m_battlegroupName, m_client.Region.ToUpper());
-                return;
+                ladderView.Invoke(new AddListViewItems(FillListView), ladder);
             }
+            else
+            {
+                Ladder = ladder;
 
-            ladderView.BeginUpdate();
+                m_filterForm.FillComboBox(Ladder);
 
-            ladderView.Items.Clear();
+                if (Ladder.ArenaTeams == null)
+                {
+                    ladderView.Items.Clear();
+                    Text = String.Format("WoW Arena Ladder - {0}-{1}: 0 of 0 teams displayed", m_battlegroupName, m_client.Region.ToUpper());
+                    return;
+                }
 
-            foreach (var team in Ladder.ArenaTeams)
-                ladderView.Items.Add(CreateListViewItemFromTeam(team));
+                ladderView.BeginUpdate();
 
-            ladderView.EndUpdate();
+                ladderView.Items.Clear();
 
-            Text = String.Format("WoW Arena Ladder -{0}-{1}: {2} of {3} teams displayed", m_battlegroupName, m_client.Region.ToUpper(), ladderView.Items.Count, Ladder.ArenaTeams.Length);
+                Task<ListViewItem[]>.Factory.StartNew(() =>
+                    {
+                        ListViewItem[] items = new ListViewItem[Ladder.ArenaTeams.Length];
+                        for (int i = 0; i < items.Length; ++i)
+                            items[i] = CreateListViewItemFromTeam(Ladder.ArenaTeams[i]);
+                        return items;
+                    }).ContinueWith((t) =>
+                    {
+                        for (int i = 0; i < t.Result.Length; ++i)
+                            AddListViewItem(t.Result[i]);
+                    }).ContinueWith((t) => Finish());
+            }
+        }
+
+        delegate void AddListViewItemD(ListViewItem item);
+
+        private void AddListViewItem(ListViewItem item)
+        {
+            if (ladderView.InvokeRequired)
+            {
+                ladderView.Invoke(new AddListViewItemD(AddListViewItem), item);
+            }
+            else
+            {
+                ladderView.Items.Add(item);
+            }
+        }
+
+        delegate void FinishD();
+
+        private void Finish()
+        {
+            if (this.InvokeRequired)
+            {
+                Invoke(new FinishD(Finish));
+            }
+            else
+            {
+                ladderView.EndUpdate();
+
+                Text = String.Format("WoW Arena Ladder - {0}-{1}: {2} of {3} teams displayed", m_battlegroupName, m_client.Region.ToUpper(), ladderView.Items.Count, Ladder.ArenaTeams.Length);
+            }
         }
 
         private void ladderView_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
@@ -175,7 +238,8 @@ namespace WowArenaLadder
         {
             if (e.ColumnIndex == 1)
             {
-                if ((e.ItemState & ListViewItemStates.Selected) != 0)
+                if (e.Item.Selected)
+                //if ((e.ItemState & ListViewItemStates.Selected) != 0)
                     e.Graphics.FillRectangle(SystemBrushes.Highlight, e.Bounds);
 
                 e.Graphics.DrawString(e.SubItem.Text, ladderView.Font, new SolidBrush(ladderView.ForeColor), e.Bounds);
@@ -230,7 +294,6 @@ namespace WowArenaLadder
             }
 
             QueryBGs();
-            QueryData();
         }
 
         private void filterToolStripMenuItem_Click(object sender, EventArgs e)

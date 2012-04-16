@@ -215,6 +215,7 @@
             this.columnHeader7});
             this.ladderView.FullRowSelect = true;
             this.ladderView.GridLines = true;
+            this.ladderView.HideSelection = false;
             this.ladderView.Location = new System.Drawing.Point(12, 27);
             this.ladderView.MultiSelect = false;
             this.ladderView.Name = "ladderView";
