@@ -14,6 +14,7 @@ namespace WCPAPI
         Shaman = 7,
         Mage = 8,
         Warlock = 9,
+        Monk = 10,
         Druid = 11
     }
 
@@ -30,7 +31,10 @@ namespace WCPAPI
         Goblin = 9,
         BloodElf = 10,
         Draenei = 11,
-        Worgen = 22
+        Worgen = 22,
+        Pandaren_Neutral = 24,
+        Pandaren_Alliance = 25,
+        Pandaren_Horde = 26
     }
 
     public enum CharacterGender
@@ -118,7 +122,7 @@ namespace WCPAPI
         public CharacterPvp Pvp { get; private set; }
         #pragma warning restore 0649
 
-        private readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        private static readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
 
         public DateTime LastModified
         {
