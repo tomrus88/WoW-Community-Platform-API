@@ -122,13 +122,13 @@ namespace WCPAPI
         public CharacterPvp Pvp { get; private set; }
         #pragma warning restore 0649
 
-        private static readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        private static readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
         public DateTime LastModified
         {
             get
             {
-                return baseTime.AddSeconds(m_lastModified / 1000.0f);
+                return baseTime.AddSeconds(m_lastModified / 1000);
             }
         }
     }

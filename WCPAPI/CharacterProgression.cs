@@ -35,10 +35,18 @@ namespace WCPAPI
     {
         [DataMember(Name = "name")]
         public string Name { get; private set; }
+        [DataMember(Name = "lfrKills")]
+        public int LfrKills { get; private set; }
+        [DataMember(Name = "lfrTimestamp")]
+        public long LfrTimestamp;
         [DataMember(Name = "normalKills")]
         public int NormalKills { get; private set; }
+        [DataMember(Name = "normalTimestamp")]
+        public long NormalTimestamp;
         [DataMember(Name = "heroicKills")]
         public int HeroicKills { get; private set; }
+        [DataMember(Name = "heroicTimestamp")]
+        public long HeroicTimestamp;
         [DataMember(Name = "id")]
         public int Id { get; private set; }
     }

@@ -1,11 +1,37 @@
 ﻿using System;
+using System.Drawing;
 using System.Net;
 using System.Runtime.Serialization.Json;
-using System.Web;
-using System.Web.Caching;
 
 namespace WCPAPI
 {
+    public class DataNotModifieldException : Exception
+    {
+        public DataNotModifieldException(string message)
+            : base(message)
+        {
+
+        }
+    }
+
+    public class DataNotFoundException : Exception
+    {
+        public DataNotFoundException(string message)
+            : base(message)
+        {
+
+        }
+    }
+
+    public class DataErrorException : Exception
+    {
+        public DataErrorException(object data)
+            : base()
+        {
+            Data.Add("error", data);
+        }
+    }
+
     public enum Locale
     {
         en_US,
@@ -50,22 +76,46 @@ namespace WCPAPI
                         var resp = web.Response as HttpWebResponse;
 
                         if (resp.StatusCode == HttpStatusCode.NotFound)
-                            return null;
+                            throw new DataNotFoundException("NotFound");
+
+                        if (resp.StatusCode == HttpStatusCode.InternalServerError)
+                        {
+                            var serializer = new DataContractJsonSerializer(typeof(ApiError));
+                            var error = serializer.ReadObject(resp.GetResponseStream());
+                            throw new DataErrorException(error);
+                        }
 
                         if (resp.StatusCode == HttpStatusCode.NotModified)
                         {
-                            return null; // grab from the cache?
+                            throw new DataNotModifieldException("NotModified");
+                            //return null; // grab from the cache?
                             //return (T)DataCache.Get(key);
                         }
-
-                        var serializer = new DataContractJsonSerializer(typeof(ApiError));
-                        return (T)serializer.ReadObject(resp.GetResponseStream());
                     }
                 }
 
                 return null;
             }
             catch
+            {
+                return null;
+            }
+        }
+
+        public Bitmap GetIcon(string url)
+        {
+            HttpWebRequest webRequest = HttpWebRequest.Create(url) as HttpWebRequest;
+            webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+
+            try
+            {
+                using (HttpWebResponse webResponse = webRequest.GetResponse() as HttpWebResponse)
+                {
+                    return new Bitmap(webResponse.GetResponseStream());
+                    //DataCache.Add(result.GetHashCode().ToString(), result);
+                }
+            }
+            catch (WebException)
             {
                 return null;
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,7 @@ namespace WCPAPI
         private ApiRequest m_request;
         public string Region { get; set; }
         private const string baseUrl = "http://{0}.battle.net/api/wow/{1}";
+        private const string baseIconsUrl = "http://media.blizzard.com/wow/icons/{0}/{1}.jpg";
 
         public ApiClient(string region)
         {
@@ -18,7 +20,7 @@ namespace WCPAPI
             m_request = new ApiRequest();
         }
 
-        public T Get<T>(string path, Dictionary<string, string> args = null, Locale? locale = null) where T : class
+        public T Get<T>(string path, Dictionary<string, string> args = null, Locale? locale = null, DateTime? ifModifiedSince = null) where T : class
         {
             string url = string.Format(baseUrl, Region, path);
 
@@ -30,7 +32,7 @@ namespace WCPAPI
             if (parameters.Count != 0)
                 url += "?" + string.Join("&", parameters.Select(x => string.Format("{0}={1}", x.Key, x.Value)).ToArray());
 
-            return m_request.Get<T>(url);
+            return m_request.Get<T>(url, ifModifiedSince);
         }
 
         public Item GetItem(int id, Locale? locale = null)
@@ -53,16 +55,16 @@ namespace WCPAPI
             }
         }
 
-        public Character GetCharacter(string realm, string character, CharacterFields? fields = null, Locale? locale = null)
+        public Character GetCharacter(string realm, string character, CharacterFields? fields = null, Locale? locale = null, DateTime? ifModifiedSince = null)
         {
             if (fields.HasValue)
             {
                 Dictionary<string, string> parameters = new Dictionary<string, string> { { "fields", FieldsFromEnum1(fields.Value) } };
-                return Get<Character>(string.Format("character/{0}/{1}", realm, character), parameters, locale);
+                return Get<Character>(string.Format("character/{0}/{1}", realm, character), parameters, locale, ifModifiedSince);
             }
             else
             {
-                return Get<Character>(string.Format("character/{0}/{1}", realm, character), null, locale);
+                return Get<Character>(string.Format("character/{0}/{1}", realm, character), null, locale, ifModifiedSince);
             }
         }
 
@@ -145,6 +147,13 @@ namespace WCPAPI
         public Battlegroups GetBattlegroups(Locale? locale = null)
         {
             return Get<Battlegroups>("data/battlegroups/", null, locale);
+        }
+
+        public Bitmap GetIcon(string name, int size)
+        {
+            string url = string.Format(baseIconsUrl, size, name);
+
+            return m_request.GetIcon(url);
         }
     }
 }
