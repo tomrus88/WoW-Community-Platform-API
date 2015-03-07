@@ -17,19 +17,19 @@ namespace WowDataInfo
             var item = client.GetItem(70534);
             propertyGrid1.SelectedObject = item;
 
-            var races = client.GetRaces();
+            //var races = client.GetRaces();
 
-            var classes = client.GetClasses();
+            //var classes = client.GetClasses();
 
-            var grewards = client.GetGuildRewards();
+            //var grewards = client.GetGuildRewards();
 
-            var gperks = client.GetGuildPerks();
+            //var gperks = client.GetGuildPerks();
 
-            var quest = client.GetQuest(25, Locale.ru_RU);
+            //var quest = client.GetQuest(25, Locale.ru_RU);
 
-            var recipe = client.GetRecipe(2149, Locale.ru_RU);
+            //var recipe = client.GetRecipe(2149, Locale.ru_RU);
 
-            var arena = client.GetArenaLadder("шквал", "2v2");
+            //var arena = client.GetArenaLadder("шквал", "2v2");
 
             // http://eu.battle.net/api/wow/data/guild/perks
             // http://us.battle.net/api/wow/data/character/achievements

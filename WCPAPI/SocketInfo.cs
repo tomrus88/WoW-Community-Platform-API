@@ -7,6 +7,8 @@ namespace WCPAPI
     {
         [DataMember(Name = "sockets")]
         public Socket[] Sockets { get; private set; }
+        [DataMember(Name = "socketBonus")]
+        public string SocketBonus { get; private set; }
     }
 
     [DataContract]

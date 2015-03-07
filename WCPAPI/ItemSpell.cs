@@ -15,5 +15,7 @@ namespace WCPAPI
         public bool Consumable { get; private set; }
         [DataMember(Name = "categoryId")]
         public int CategoryId { get; private set; }
+        [DataMember(Name = "trigger")]
+        public string Trigger { get; private set; }
     }
 }

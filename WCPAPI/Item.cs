@@ -42,8 +42,8 @@ namespace WCPAPI
         public bool Equippable { get; private set; }
         [DataMember(Name = "itemLevel")]
         public int ItemLevel { get; private set; }
-        [DataMember(Name = "itemSet")]
-        public int ItemSet { get; private set; }
+        //[DataMember(Name = "itemSet")]
+        //public int ItemSet { get; private set; }
         [DataMember(Name = "maxCount")]
         public int MaxCount { get; private set; }
         [DataMember(Name = "maxDurability")]
@@ -72,6 +72,20 @@ namespace WCPAPI
         public bool HasSockets { get; private set; }
         [DataMember(Name = "isAuctionable")]
         public bool IsAuctionable { get; private set; }
-        #pragma warning disable 0649
+        [DataMember(Name = "armor")]
+        public int Armor { get; private set; }
+        [DataMember(Name = "displayInfoId")]
+        public int DisplayInfoId { get; private set; }
+        [DataMember(Name = "nameDescription")]
+        public string NameDescription { get; private set; }
+        [DataMember(Name = "nameDescriptionColor")]
+        public string NameDescriptionColor { get; private set; }
+        [DataMember(Name = "upgradable")]
+        public bool Upgradable { get; private set; }
+        [DataMember(Name = "heroicTooltip")]
+        public bool HeroicTooltip { get; private set; }
+        [DataMember(Name = "context")]
+        public string Context { get; private set; }
+#pragma warning disable 0649
     }
 }
