@@ -6,7 +6,7 @@ namespace WCPAPI
     public class WeaponInfo
     {
         [DataMember(Name = "damage")]
-        public Damage[] Damage { get; private set; }
+        public Damage Damage { get; private set; }
         [DataMember(Name = "weaponSpeed")]
         public float WeaponSpeed { get; private set; }
         [DataMember(Name = "dps")]
@@ -16,9 +16,13 @@ namespace WCPAPI
     [DataContract]
     public class Damage
     {
-        [DataMember(Name = "minDamage")]
-        public int MinDamage { get; private set; }
-        [DataMember(Name = "maxDamage")]
-        public int MaxDamage { get; private set; }
+        [DataMember(Name = "exactMax")]
+        public float ExactMax { get; private set; }
+        [DataMember(Name = "exactMin")]
+        public float ExactMin { get; private set; }
+        [DataMember(Name = "max")]
+        public int Min { get; private set; }
+        [DataMember(Name = "min")]
+        public int Max { get; private set; }
     }
 }

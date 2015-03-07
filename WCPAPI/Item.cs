@@ -42,8 +42,8 @@ namespace WCPAPI
         public bool Equippable { get; private set; }
         [DataMember(Name = "itemLevel")]
         public int ItemLevel { get; private set; }
-        //[DataMember(Name = "itemSet")]
-        //public int ItemSet { get; private set; }
+        [DataMember(Name = "itemSet")]
+        public ItemSet ItemSet { get; private set; }
         [DataMember(Name = "maxCount")]
         public int MaxCount { get; private set; }
         [DataMember(Name = "maxDurability")]
@@ -86,6 +86,10 @@ namespace WCPAPI
         public bool HeroicTooltip { get; private set; }
         [DataMember(Name = "context")]
         public string Context { get; private set; }
+        //??? bonusLists[]
+        [DataMember(Name = "availableContexts")]
+        public string[] AvailableContexts { get; private set; }
+        //bonusSummary
 #pragma warning disable 0649
     }
 }

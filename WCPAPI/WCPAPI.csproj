@@ -56,6 +56,7 @@
     <Compile Include="CharacterPvp.cs" />
     <Compile Include="DataCache.cs" />
     <Compile Include="ApiClient.cs" />
+    <Compile Include="ItemSet.cs" />
     <Compile Include="RecipeData.cs" />
     <Compile Include="QuestData.cs" />
     <Compile Include="GuildPerksData.cs" />

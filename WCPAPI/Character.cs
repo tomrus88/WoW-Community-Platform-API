@@ -88,6 +88,10 @@ namespace WCPAPI
         public int AchievementPoints { get; private set; }
         [DataMember(Name = "thumbnail")]
         public string Thumbnail { get; private set; }
+        [DataMember(Name = "battlegroup")]
+        public string Battlegroup { get; private set; }
+        [DataMember(Name = "calcClass")]
+        public string CalcClass { get; private set; }
 
         // Optional fields
         [DataMember(Name = "items", IsRequired = false)]
@@ -100,8 +104,8 @@ namespace WCPAPI
         public CharacterTitle[] Titles { get; private set; }
         [DataMember(Name = "achievements", IsRequired = false)]
         public Achievements Achievements { get; private set; }
-        [DataMember(Name = "pets", IsRequired = false)]
-        public CharacterPet[] Pets { get; private set; }
+        [DataMember(Name = "hunterPets", IsRequired = false)]
+        public CharacterPet[] HunterPets { get; private set; }
         [DataMember(Name = "talents", IsRequired = false)]
         public CharacterSpec[] Talents { get; private set; }
         [DataMember(Name = "mounts", IsRequired = false)]
@@ -120,7 +124,12 @@ namespace WCPAPI
         public int[] Quests { get; private set; }
         [DataMember(Name = "pvp", IsRequired = false)]
         public CharacterPvp Pvp { get; private set; }
-        #pragma warning restore 0649
+
+        //audit
+        //petSlots
+        //pets
+        //feed
+#pragma warning restore 0649
 
         private static readonly DateTime baseTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
